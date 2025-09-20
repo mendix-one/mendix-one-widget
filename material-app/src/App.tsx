@@ -50,11 +50,48 @@ function App() {
     },
     typography: {
       fontSize: 14,
+      htmlFontSize: 14,
       fontFamily: 'Roboto, sans-serif',
+      h1: {
+        fontSize: 24,
+      },
+      h2: {
+        fontSize: 20,
+      },
+      h3: {
+        fontSize: 18,
+      },
+      h4: {
+        fontSize: 16,
+      },
+      h5: {
+        fontSize: 14,
+      },
+      h6: {
+        fontSize: 12,
+      },
+      subtitle1: {
+        fontSize: 16,
+      },
+      subtitle2: {
+        fontSize: 14,
+      },
+      body1: {
+        fontSize: 14,
+      },
+      body2: {
+        fontSize: 12,
+      },
       button: {
         fontSize: 14,
         textTransform: 'capitalize',
-        fontWeight: 'bold',
+        fontWeight: 600,
+      },
+      caption: {
+        fontSize: 13,
+      },
+      overline: {
+        fontSize: 14,
       },
     },
   })
