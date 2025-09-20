@@ -15,6 +15,7 @@ import AppTopNav from './layout/AppTopNav'
 import CssBaseline from '@mui/material/CssBaseline'
 import AppMessenger from './layout/AppMessenger'
 import AppNotification from './layout/AppNotification'
+import PageContent from './example/content/PageContent'
 
 const drawerWidth = 200
 
@@ -112,7 +113,9 @@ function App() {
             minHeight: 'calc(100vh - 48px)'
           }}
         >
-          <Box sx={{ with: '100%', height: 'auto', minHeight: 'calc(100vh - 80px)' }}></Box>
+          <Box sx={{ with: '100%', height: 'auto', minHeight: 'calc(100vh - 80px)' }}>
+            <PageContent />
+          </Box>
         </Box>
       </Box>
     </ThemeProvider>
