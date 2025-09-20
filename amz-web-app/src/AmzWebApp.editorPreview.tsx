@@ -7,5 +7,5 @@ export function preview({ sampleText }: AmzWebAppPreviewProps): ReactElement {
 }
 
 export function getPreviewCss(): string {
-  return require('./ui/AmzWebApp.css')
+  return require('./styles/AmzWebApp.scss')
 }
