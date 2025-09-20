@@ -23,15 +23,20 @@
     "lint:fix": "pluggable-widgets-tools lint:fix",
     "prerelease": "npm run lint",
     "release": "pluggable-widgets-tools release:web",
-    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,css,scss}\""
+    "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,css,scss, xml}\""
   },
   "devDependencies": {
     "@mendix/pluggable-widgets-tools": "^10.21.2",
-    "@types/big.js": "^6.0.2"
+    "@types/big.js": "^6.0.2",
+    "sass-embedded": "^1.93.0"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "sass-embedded": "^1.93.0"
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/material": "^7.3.2",
+    "@mui/x-data-grid": "^8.11.3",
+    "classnames": "^2.2.6"
   },
   "resolutions": {
     "react": "^18.3.1",

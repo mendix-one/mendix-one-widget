@@ -12,7 +12,12 @@ html, body {
 }
 
 #root {
-  width: calc(100vw - (100vw - 100%));
-  height: calc(100vh - (100vh - 100%));
+  min-width: calc(100vw - (100vw - 100%));
+  min-height: calc(100vh - (100vh - 100%));
   box-sizing: border-box;
+}
+
+.mx-page {
+  min-width: calc(100vw - (100vw - 100%));
+  min-height: calc(100vh - (100vh - 100%));
 }

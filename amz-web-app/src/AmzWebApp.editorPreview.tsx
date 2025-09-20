@@ -1,9 +1,9 @@
-import { ReactElement, createElement } from 'react'
-import { HelloWorldSample } from './components/HelloWorldSample'
+import AmzWebAppLayout from './components/AmzWebAppLayout'
 import { AmzWebAppPreviewProps } from '../typings/AmzWebAppProps'
 
-export function preview({ sampleText }: AmzWebAppPreviewProps): ReactElement {
-  return <HelloWorldSample sampleText={sampleText} />
+export function preview(props: AmzWebAppPreviewProps) {
+  console.info(props.class)
+  return <AmzWebAppLayout />
 }
 
 export function getPreviewCss(): string {

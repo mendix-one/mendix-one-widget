@@ -3,14 +3,30 @@
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix Widgets Framework Team
  */
-import { CSSProperties } from "react";
+import { ComponentType, CSSProperties, ReactNode } from "react";
+
+export interface ContextType {
+    settings: string;
+    showLeftSidebar: boolean;
+}
+
+export interface ContextPreviewType {
+    settings: string;
+    showLeftSidebar: boolean;
+}
 
 export interface AmzWebAppContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    sampleText: string;
+    context: ContextType[];
+    logo?: ReactNode;
+    notify?: ReactNode;
+    tasks?: ReactNode;
+    user?: ReactNode;
+    sidebar?: ReactNode;
+    content?: ReactNode;
 }
 
 export interface AmzWebAppPreviewProps {
@@ -24,5 +40,11 @@ export interface AmzWebAppPreviewProps {
     readOnly: boolean;
     renderMode: "design" | "xray" | "structure";
     translate: (text: string) => string;
-    sampleText: string;
+    context: ContextPreviewType[];
+    logo: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    notify: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    tasks: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    user: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    sidebar: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    content: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
 }
