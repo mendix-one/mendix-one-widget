@@ -54,7 +54,7 @@ function App() {
       button: {
         fontSize: 14,
         textTransform: 'capitalize',
-        fontWeight: 600,
+        fontWeight: 'bold',
       },
     },
   })
@@ -73,18 +73,18 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position='fixed' color='primary' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2 }}>
-        <Toolbar variant='dense' disableGutters={true}>
+      <AppBar position="fixed" color="primary" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2 }}>
+        <Toolbar variant="dense" disableGutters={true}>
           <Box sx={{ display: 'flex', width: `${drawerWidth}px` }}>
             <Box sx={{ flexGrow: 1 }}>
               <AppLogo />
             </Box>
             <Box sx={{ flexGrow: 0 }}>
               <IconButton
-                size='large'
-                edge='start'
-                color='inherit'
-                aria-label='menu'
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
                 sx={{ mr: 2 }}
                 onClick={toggleDrawer(!drawer)}
               >
@@ -96,7 +96,7 @@ function App() {
             <AppTopNav />
           </Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Stack direction='row' spacing={1}>
+            <Stack direction="row" spacing={1}>
               <Box>
                 <AppNotification />
               </Box>
@@ -110,7 +110,7 @@ function App() {
           </Box>
         </Toolbar>
       </AppBar>
-      <Toolbar variant='dense' disableGutters={true} />
+      <Toolbar variant="dense" disableGutters={true} />
       <Drawer
         open={drawer}
         variant={drawer ? `permanent` : 'temporary'}
@@ -120,13 +120,13 @@ function App() {
           [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
         }}
       >
-        <Toolbar variant='dense' disableGutters={true} />
+        <Toolbar variant="dense" disableGutters={true} />
         <Box sx={{ px: 1, overflowX: 'hidden', overflowY: 'auto' }}>
           <AppLeftBar />
         </Box>
       </Drawer>
       <Box
-        id='id-body-container'
+        id="id-body-container"
         sx={{
           display: 'flex',
           width: '100%',
@@ -135,12 +135,12 @@ function App() {
         }}
       >
         <Box sx={{ flexGrow: 0, height: 'auto', minHeight: '100%' }}>
-          <Collapse orientation='horizontal' in={drawer} timeout={100}>
+          <Collapse orientation="horizontal" in={drawer} timeout={100}>
             <Box sx={{ width: `${drawerWidth}px`, height: 'calc(100vh - 48px)' }}>&nbsp;</Box>
           </Collapse>
         </Box>
         <Box
-          id='id-body-wrapper'
+          id="id-body-wrapper"
           sx={{
             flexGrow: 0,
             p: 2,
@@ -148,7 +148,7 @@ function App() {
             minHeight: '100%',
           }}
         >
-          <Box id='id-body-main' sx={{ with: '100%', height: 'auto', minHeight: '100%' }}>
+          <Box id="id-body-main" sx={{ with: '100%', height: 'auto', minHeight: '100%' }}>
             <PageContent />
           </Box>
         </Box>

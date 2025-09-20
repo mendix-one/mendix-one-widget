@@ -23,7 +23,7 @@ export default function AppTopNav() {
   }, [anchorElTopNavRef.current])
 
   return (
-    <Box ref={anchorElTopNavRef} sx={{display: 'flex'}}>
+    <Box ref={anchorElTopNavRef} sx={{ display: 'flex' }}>
       {pages.map((page) => (
         <Button key={page} onClick={handleCloseNavMenu} sx={{ color: 'white', display: 'block' }}>
           {page}

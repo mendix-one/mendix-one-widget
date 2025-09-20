@@ -38,12 +38,12 @@ export default function AppUserInfo() {
         anchorEl={anchorElRef.current}
         anchorOrigin={{
           vertical: 'top',
-          horizontal: 'right'
+          horizontal: 'right',
         }}
         keepMounted={false}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'right'
+          horizontal: 'right',
         }}
         open={showMenu}
         onClose={handleCloseMenu}

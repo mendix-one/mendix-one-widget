@@ -4,7 +4,16 @@ import Typography from '@mui/material/Typography'
 
 export default function AppLogo() {
   return (
-    <Box sx={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'start', overflow: 'hidden'}}>
+    <Box
+      sx={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'start',
+        overflow: 'hidden',
+      }}
+    >
       <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
       <Typography
         variant="h6"
@@ -18,7 +27,7 @@ export default function AppLogo() {
           fontWeight: 700,
           letterSpacing: '.3rem',
           color: 'inherit',
-          textDecoration: 'none'
+          textDecoration: 'none',
         }}
       >
         LOGO
