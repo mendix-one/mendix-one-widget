@@ -1,16 +1,16 @@
 import { useRef, useState } from 'react'
-import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
 import Tooltip from '@mui/material/Tooltip'
+import Badge from '@mui/material/Badge'
+import MailIcon from '@mui/icons-material/Mail'
+import MenuItem from '@mui/material/MenuItem'
 import Typography from '@mui/material/Typography'
-import { deepPurple } from '@mui/material/colors'
+import Menu from '@mui/material/Menu'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
-export default function AppUserInfo() {
+export default function AppMessenger() {
   const anchorElRef = useRef<HTMLElement | undefined>()
   const [showMenu, setShowMenu] = useState<boolean>(false)
 
@@ -24,13 +24,11 @@ export default function AppUserInfo() {
 
   return (
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
-      <Tooltip title="Open settings">
-        <IconButton onClick={handleOpenMenu}>
-          <Avatar
-            alt="Remy Sharp"
-            src="/static/images/avatar/2.jpg"
-            sx={{ width: '26px', height: '26px', bgcolor: deepPurple[600] }}
-          />
+      <Tooltip title="Show 4 new mails">
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit" onClick={handleOpenMenu}>
+          <Badge badgeContent={4} color="secondary">
+            <MailIcon />
+          </Badge>
         </IconButton>
       </Tooltip>
       <Menu

@@ -13,6 +13,8 @@ import AppLeftBar from './layout/AppLeftNav'
 import AppUserInfo from './layout/AppUserInfo'
 import AppTopNav from './layout/AppTopNav'
 import CssBaseline from '@mui/material/CssBaseline'
+import AppMessenger from './layout/AppMessenger'
+import AppNotification from './layout/AppNotification'
 
 const drawerWidth = 200
 
@@ -68,8 +70,12 @@ function App() {
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Stack direction="row" spacing={1}>
-              <Box>Item 1</Box>
-              <Box>Item 2</Box>
+              <Box>
+                <AppNotification />
+              </Box>
+              <Box>
+                <AppMessenger />
+              </Box>
               <Box>
                 <AppUserInfo />
               </Box>
