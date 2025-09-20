@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "material-app"
+		},
+		{
+			"path": "amz-web-app"
+		},
+		{
+			"path": "amz-top-nav"
+		},
+		{
+			"path": "amz-top-notify"
+		},
+		{
+			"path": "amz-top-tasks"
+		},
+		{
+			"path": "amz-user-info"
+		},
+		{
+			"path": "amz-left-nav"
+		}
+	],
+	"settings": {}
+}
