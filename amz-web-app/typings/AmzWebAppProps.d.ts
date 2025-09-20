@@ -22,6 +22,7 @@ export interface AmzWebAppContainerProps {
     tabIndex?: number;
     context: ContextType[];
     logo?: ReactNode;
+    navbar?: ReactNode;
     notify?: ReactNode;
     tasks?: ReactNode;
     user?: ReactNode;
@@ -42,6 +43,7 @@ export interface AmzWebAppPreviewProps {
     translate: (text: string) => string;
     context: ContextPreviewType[];
     logo: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    navbar: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     notify: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     tasks: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     user: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };

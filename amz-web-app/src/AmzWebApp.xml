@@ -37,6 +37,10 @@
           <caption>Brand Logo</caption>
           <description>Top Bar - Brand Logo</description>
         </property>
+        <property key="navbar" type="widgets" required="false">
+          <caption>Navigation Bar</caption>
+          <description>Top Bar - Navigation Bar</description>
+        </property>
         <property key="notify" type="widgets" required="false">
           <caption>Notify</caption>
           <description>Top Bar - Noitfy Menu</description>

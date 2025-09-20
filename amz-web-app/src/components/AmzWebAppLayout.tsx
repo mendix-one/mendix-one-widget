@@ -8,16 +8,11 @@ import Drawer from '@mui/material/Drawer'
 import Collapse from '@mui/material/Collapse'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import AppLogo from './layout/AppLogo'
-import AppLeftBar from './layout/AppLeftNav'
-import AppUserInfo from './layout/AppUserInfo'
-import AppTopNav from './layout/AppTopNav'
 import CssBaseline from '@mui/material/CssBaseline'
-import AppMessenger from './layout/AppMessenger'
-import AppNotification from './layout/AppNotification'
 
 export type AmzWebAppLayoutProps = {
   logo?: ReactNode
+  navbar?: ReactNode
   notify?: ReactNode
   tasks?: ReactNode
   user?: ReactNode
@@ -118,18 +113,16 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position='fixed' color='primary' sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2 }}>
-        <Toolbar variant='dense' disableGutters={true}>
+      <AppBar position="fixed" color="primary" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2 }}>
+        <Toolbar variant="dense" disableGutters={true}>
           <Box sx={{ display: 'flex', width: `${drawerWidth}px` }}>
-            <Box sx={{ flexGrow: 1 }}>
-              <AppLogo />
-            </Box>
+            <Box sx={{ flexGrow: 1 }}>{props.logo}</Box>
             <Box sx={{ flexGrow: 0 }}>
               <IconButton
-                size='large'
-                edge='start'
-                color='inherit'
-                aria-label='menu'
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
                 sx={{ mr: 2 }}
                 onClick={toggleDrawer(!drawer)}
               >
@@ -137,25 +130,23 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
               </IconButton>
             </Box>
           </Box>
-          <Box sx={{ flexGrow: 1 }}>
-            <AppTopNav />
-          </Box>
+          <Box sx={{ flexGrow: 1 }}>{props.navbar}</Box>
           <Box sx={{ flexGrow: 0 }}>
-            <Stack direction='row' spacing={1}>
+            <Stack direction="row" spacing={1}>
               <Box>
-                <AppNotification />
+                {props.notify}
               </Box>
               <Box>
-                <AppMessenger />
+                {props.tasks}
               </Box>
               <Box>
-                <AppUserInfo />
+                {props.user}
               </Box>
             </Stack>
           </Box>
         </Toolbar>
       </AppBar>
-      <Toolbar variant='dense' disableGutters={true} />
+      <Toolbar variant="dense" disableGutters={true} />
       <Drawer
         open={drawer}
         variant={drawer ? `permanent` : 'temporary'}
@@ -165,13 +156,13 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
           [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
         }}
       >
-        <Toolbar variant='dense' disableGutters={true} />
+        <Toolbar variant="dense" disableGutters={true} />
         <Box sx={{ px: 1, overflowX: 'hidden', overflowY: 'auto' }}>
-          <AppLeftBar />
+          {props.sidebar}
         </Box>
       </Drawer>
       <Box
-        id='id-body-container'
+        id="id-body-container"
         sx={{
           display: 'flex',
           width: '100%',
@@ -180,12 +171,12 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
         }}
       >
         <Box sx={{ flexGrow: 0, height: 'auto', minHeight: '100%' }}>
-          <Collapse orientation='horizontal' in={drawer} timeout={100}>
+          <Collapse orientation="horizontal" in={drawer} timeout={100}>
             <Box sx={{ width: `${drawerWidth}px`, height: 'calc(100vh - 48px)' }}>&nbsp;</Box>
           </Collapse>
         </Box>
         <Box
-          id='id-body-wrapper'
+          id="id-body-wrapper"
           sx={{
             flexGrow: 0,
             p: 2,
@@ -193,7 +184,7 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
             minHeight: '100%',
           }}
         >
-          <Box id='id-body-main' sx={{ with: '100%', height: 'auto', minHeight: '100%' }}>
+          <Box id="id-body-main" sx={{ with: '100%', height: 'auto', minHeight: '100%' }}>
             {props.content}
           </Box>
         </Box>

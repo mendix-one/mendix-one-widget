@@ -2,52 +2,63 @@
 @use './icon/materialdesignicons';
 @use './roboto/mixins' as Roboto;
 @use './variables' as *;
+@use './common';
 
 @include Roboto.faces();
 
 $top-bar-height: 48px;
+$top-menu-width: 48px;
 
 $sidebar-width: 200px;
-$top-menu-width: 48px;
 
 /*
 Place your custom CSS here
 */
 .amz-web-app-preview {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-width: 100%;
+  min-height: 600px;
 
   .amz-top-bar {
     width: 100%;
     height: $top-bar-height;
     background: $primary;
+    color: $white;
 
     .left-box {
       width: $sidebar-width;
-      .sidebar-toogle {
-        width: $top-menu-width;
-        height: $top-bar-height;
-      }
+    }
+
+    .middile-box {
     }
 
     .right-box {
-      .menu-toogle-item {
-        width: $top-menu-width;
-        height: $top-bar-height;
-      }
+    }
+
+    .sidebar-toogle {
+      height: $top-bar-height;
+    }
+
+    .menu-toogle-item {
+      width: $top-menu-width;
+      height: $top-bar-height;
     }
   }
 
   .amz-body {
     width: 100%;
+    height: auto;
     min-height: calc(100% - 48px);
 
     .amz-left-sidebar {
       width: $sidebar-width;
+      height: auto;
       min-height: 100%;
     }
     .amz-main-content {
-      width: calc(100% - $sidebar-width);
+      width: auto;
+      height: auto;
       min-height: 100%;
     }
   }
