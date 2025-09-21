@@ -14,10 +14,9 @@ import AppLeftBar from './layout/AppLeftNav'
 import AppUserInfo from './layout/AppUserInfo'
 import AppTopNav from './layout/AppTopNav'
 import CssBaseline from '@mui/material/CssBaseline'
-import AppMessenger from './layout/AppMessenger'
-import AppNotification from './layout/AppNotification'
+import AppTasks from './layout/AppTasks'
+import AppNotify from './layout/AppNotify'
 import PageContent from './example/content/PageContent'
-import AppDrawerPaper from './layout/AppDrawerPaper';
 
 const drawerWidth = 200
 
@@ -93,7 +92,6 @@ function App() {
       button: {
         fontSize: 14,
         textTransform: 'capitalize',
-        fontWeight: 600,
       },
       caption: {
         fontSize: 13,
@@ -144,10 +142,10 @@ function App() {
           <Box sx={{ flexGrow: 0 }}>
             <Stack direction="row" spacing={1}>
               <Box>
-                <AppNotification />
+                <AppTasks />
               </Box>
               <Box>
-                <AppMessenger />
+                <AppNotify />
               </Box>
               <Box>
                 <AppUserInfo />

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { deepPurple } from '@mui/material/colors'
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
@@ -6,9 +7,14 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
-import { deepPurple } from '@mui/material/colors'
-
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+import MenuList from '@mui/material/MenuList'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import Divider from '@mui/material/Divider'
+import LogoutIcon from '@mui/icons-material/Logout'
+import PasswordIcon from '@mui/icons-material/Password'
+import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest'
+import AccountBoxIcon from '@mui/icons-material/AccountBox'
 
 export default function AppUserInfo() {
   const anchorElRef = useRef<HTMLElement | undefined>()
@@ -24,7 +30,7 @@ export default function AppUserInfo() {
 
   return (
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
-      <Tooltip title="User Settings">
+      <Tooltip title="Account">
         <IconButton onClick={handleOpenMenu}>
           <Avatar alt="Remy Sharp" sx={{ width: '30px', height: '30px', bgcolor: deepPurple[600] }} />
         </IconButton>
@@ -43,13 +49,75 @@ export default function AppUserInfo() {
         }}
         open={showMenu}
         onClose={handleCloseMenu}
-        sx={{ mt: '32px' }}
+        sx={{ mt: '35px' }}
       >
-        {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseMenu}>
-            <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+        <MenuList>
+          <MenuItem>
+            <ListItemIcon>
+              <AccountBoxIcon fontSize="small" color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                color: (theme) => theme.palette.primary.main,
+                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.primary.main },
+              }}
+            >
+              Account Profile
+            </ListItemText>
+            <Typography variant="body2" sx={{ color: 'text.secondary', pl: 2 }}>
+              ⌘ ⇧ A
+            </Typography>
           </MenuItem>
-        ))}
+          <MenuItem>
+            <ListItemIcon>
+              <PasswordIcon fontSize="small" color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                color: (theme) => theme.palette.primary.main,
+                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.primary.main },
+              }}
+            >
+              Change Password
+            </ListItemText>
+            <Typography variant="body2" sx={{ color: 'text.secondary', pl: 2 }}>
+              ⌘ ⇧ P
+            </Typography>
+          </MenuItem>
+          <MenuItem color="primary">
+            <ListItemIcon>
+              <SettingsSuggestIcon fontSize="small" color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                color: (theme) => theme.palette.primary.main,
+                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.primary.main },
+              }}
+            >
+              Custom Settings
+            </ListItemText>
+            <Typography variant="body2" sx={{ color: 'text.secondary', pl: 2 }}>
+              ⌘ ⇧ S
+            </Typography>
+          </MenuItem>
+          <Divider />
+          <MenuItem>
+            <ListItemIcon>
+              <LogoutIcon fontSize="small" color="error" />
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                color: (theme) => theme.palette.primary.main,
+                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.error.main },
+              }}
+            >
+              Logout
+            </ListItemText>
+            <Typography variant="body2" sx={{ color: { color: (theme) => theme.palette.error.main }, pl: 2 }}>
+              ⌘ ⇧ Q
+            </Typography>
+          </MenuItem>
+        </MenuList>
       </Menu>
     </Box>
   )
