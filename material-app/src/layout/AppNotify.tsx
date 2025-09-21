@@ -8,8 +8,7 @@ import Menu from '@mui/material/Menu'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive'
+import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined'
 
 const messages = ['Profile', 'Account', 'Dashboard', 'Logout', 'Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -30,7 +29,7 @@ export default function AppNotify() {
       <Tooltip title="Notification">
         <IconButton size="large" aria-label="show 17 new notifications" color="primary" onClick={handleOpenMenu}>
           <Badge badgeContent={17} color="secondary" variant="dot">
-            <NotificationsActiveIcon />
+            <NotificationsActiveOutlinedIcon />
           </Badge>
         </IconButton>
       </Tooltip>
@@ -90,7 +89,7 @@ export default function AppNotify() {
             <Stack spacing={1}>
               <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
                 <Stack sx={{}}>
-                  <NotificationsActiveIcon fontSize="small" color="primary" />
+                  <NotificationsActiveOutlinedIcon fontSize="small" color="primary" />
                 </Stack>
                 <Stack sx={{ width: '360px', minWidth: 0, maxWidth: '100%' }}>
                   <Typography variant="h5" noWrap>

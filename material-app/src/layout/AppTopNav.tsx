@@ -7,7 +7,7 @@ import ArticleIcon from '@mui/icons-material/Article'
 import MenuItem from '@mui/material/MenuItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import AppsIcon from '@mui/icons-material/Apps';
+import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined'
 
 const pages = [
   {

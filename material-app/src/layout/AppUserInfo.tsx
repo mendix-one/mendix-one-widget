@@ -14,7 +14,8 @@ import Divider from '@mui/material/Divider'
 import LogoutIcon from '@mui/icons-material/Logout'
 import PasswordIcon from '@mui/icons-material/Password'
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest'
-import AccountBoxIcon from '@mui/icons-material/AccountBox'
+import TranslateIcon from '@mui/icons-material/Translate'
+import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined'
 
 export default function AppUserInfo() {
   const anchorElRef = useRef<HTMLElement | undefined>()
@@ -54,7 +55,23 @@ export default function AppUserInfo() {
         <MenuList>
           <MenuItem>
             <ListItemIcon>
-              <AccountBoxIcon fontSize="small" color="primary" />
+              <TranslateIcon fontSize="small" color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                color: (theme) => theme.palette.primary.main,
+                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.primary.main },
+              }}
+            >
+              English (United State)
+            </ListItemText>
+            <Typography variant="body2" sx={{ color: 'text.secondary', pl: 2 }}>
+              ⌘ ⇧ L
+            </Typography>
+          </MenuItem>
+          <MenuItem>
+            <ListItemIcon>
+              <AccountBoxOutlinedIcon fontSize="small" color="primary" />
             </ListItemIcon>
             <ListItemText
               sx={{
