@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react'
 import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import Box from '@mui/material/Box'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
@@ -118,6 +119,8 @@ function App() {
 
   console.log(theme)
 
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+
   const [drawer, setDrawer] = useState(false)
   const toggleDrawer = (show: boolean) => () => {
     setDrawer(show)
@@ -132,89 +135,108 @@ function App() {
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2, backgroundColor: 'common.white' }}
       >
         <Toolbar variant="dense" disableGutters={true}>
-          <Box sx={{ display: 'flex', width: `${drawerWidth}px` }}>
-            <Box sx={{ flexGrow: 1 }}>
-              <AppLogo />
-            </Box>
-            <Box sx={{ flexGrow: 0 }}>
-              <IconButton
-                size="large"
-                edge="start"
-                color="primary"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-                onClick={toggleDrawer(!drawer)}
-              >
-                <MenuIcon />
-              </IconButton>
+          <Box sx={{ flexGrow: 0, width: isDesktop ? `${drawerWidth}px` : 'auto', maxHeight: '100%' }}>
+            <Box
+              sx={{
+                width: '100%',
+                maxHeight: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <Box sx={{ flexGrow: 1, maxHeight: '100%' }}>
+                <AppLogo />
+              </Box>
+              {isDesktop ? (
+                <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
+                  <IconButton
+                    size="large"
+                    edge="start"
+                    color="primary"
+                    aria-label="menu"
+                    onClick={toggleDrawer(!drawer)}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Box>
+              ) : (
+                <></>
+              )}
             </Box>
           </Box>
-          <Box sx={{ flexGrow: 1 }}>
+          <Box sx={{ flexGrow: 1, maxHeight: '100%' }}>
             <AppTopNav />
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
             <Stack direction="row" spacing={1}>
-              <Box>
+              <Stack>
                 <AppTasks />
-              </Box>
-              <Box>
+              </Stack>
+              <Stack>
                 <AppNotify />
-              </Box>
-              <Box>
+              </Stack>
+              <Stack>
                 <AppUserInfo />
-              </Box>
+              </Stack>
             </Stack>
           </Box>
         </Toolbar>
       </AppBar>
       <Toolbar variant="dense" disableGutters={true} />
-      <Drawer
-        open={drawer}
-        variant={drawer ? `permanent` : 'temporary'}
-        hideBackdrop={true}
-        color="transparent"
-        sx={{
-          width: drawerWidth,
-          [`& .MuiDrawer-paper`]: {
+      {isDesktop ? (
+        <Drawer
+          open={drawer}
+          variant={drawer ? `permanent` : 'temporary'}
+          hideBackdrop={true}
+          color="transparent"
+          sx={{
             width: drawerWidth,
-            boxSizing: 'border-box',
-            background: 'transparent',
+            [`& .MuiDrawer-paper`]: {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+              background: 'transparent',
+              border: 'none',
+            },
+            backgroundColor: 'common.grey',
             border: 'none',
-          },
-          backgroundColor: 'common.grey',
-          border: 'none',
-        }}
-      >
-        <Toolbar variant="dense" disableGutters={true} />
-        <Box sx={{ px: 1, overflowX: 'hidden', overflowY: 'auto' }}>
-          <AppLeftBar />
-        </Box>
-      </Drawer>
+          }}
+        >
+          <Toolbar variant="dense" disableGutters={true} />
+          <Box sx={{ px: 1, overflowX: 'hidden', overflowY: 'auto' }}>
+            <AppLeftBar />
+          </Box>
+        </Drawer>
+      ) : (
+        <></>
+      )}
       <Box
-        id="id-body-container"
         sx={{
-          display: 'flex',
+          display: { xs: 'block', sm: 'block', md: 'block', lg: 'flex' },
           width: '100%',
           height: 'auto',
           minHeight: 'calc(100% - 48px)',
           backgroundColor: 'common.grey',
         }}
       >
-        <Box sx={{ flexGrow: 0, height: 'auto', minHeight: '100%' }}>
-          <Collapse orientation="horizontal" in={drawer} timeout={100}>
-            <Box sx={{ width: `${drawerWidth}px`, height: 'calc(100vh - 48px)' }}>&nbsp;</Box>
-          </Collapse>
-        </Box>
+        {isDesktop ? (
+          <Box sx={{ flexGrow: 0, height: 'auto', minHeight: '100%' }}>
+            <Collapse orientation="horizontal" in={drawer} timeout={100}>
+              <Box sx={{ width: `${drawerWidth}px`, height: 'calc(100vh - 48px)' }}>&nbsp;</Box>
+            </Collapse>
+          </Box>
+        ) : (
+          <></>
+        )}
         <Box
-          id="id-body-wrapper"
           sx={{
-            flexGrow: 0,
             p: 2,
+            flexGrow: 1,
             height: 'auto',
             minHeight: '100%',
           }}
         >
-          <Box id="id-body-main" sx={{ with: '100%', height: 'auto', minHeight: '100%' }}>
+          <Box sx={{ with: '100%', height: 'auto', minHeight: '100%' }}>
             <PageContent />
           </Box>
         </Box>

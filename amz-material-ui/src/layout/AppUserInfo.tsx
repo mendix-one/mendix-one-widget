@@ -36,7 +36,6 @@ export default function AppUserInfo() {
         </IconButton>
       </Tooltip>
       <Menu
-        id="user-info-menu"
         anchorEl={anchorElRef.current}
         anchorOrigin={{
           vertical: 'top',

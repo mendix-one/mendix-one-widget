@@ -1,20 +1,26 @@
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
 export default function AppLogo() {
-  return (
+  const theme = useTheme()
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+
+  return isDesktop ? (
     <Box
       sx={{
         width: '100%',
-        height: '100%',
+        maxHeight: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'start',
         overflow: 'hidden',
       }}
     >
-      <Box sx={{ width: '32px', height: '32px' }}>
-        <img src="/icon.png" style={{ width: '100%', height: '100%' }} />
+      <Box sx={{ width: '32px', height: '32px', '> img': { maxWidth: '32px', maxHeight: '32px' } }}>
+        <img src="/icon.png" />
       </Box>
       <Box sx={{ pl: 1 }}>
         <Typography
@@ -27,6 +33,21 @@ export default function AppLogo() {
         >
           Mx One UI
         </Typography>
+      </Box>
+    </Box>
+  ) : (
+    <Box
+      sx={{
+        width: '100%',
+        maxHeight: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'start',
+        overflow: 'hidden',
+      }}
+    >
+      <Box sx={{ width: '32px', height: '32px', '> img': { maxWidth: '32px', maxHeight: '32px' } }}>
+        <img src="/icon.png" />
       </Box>
     </Box>
   )

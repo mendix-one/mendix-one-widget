@@ -33,7 +33,6 @@ export default function AppTasks() {
         </IconButton>
       </Tooltip>
       <Menu
-        id="user-info-menu"
         anchorEl={anchorElRef.current}
         anchorOrigin={{
           vertical: 'top',
@@ -46,7 +45,7 @@ export default function AppTasks() {
         }}
         open={showMenu}
         onClose={handleCloseMenu}
-        sx={{ mt: '32px' }}
+        sx={{ mt: '35px' }}
       >
         {settings.map((setting) => (
           <Box key={setting} sx={{ minWidth: '320px', maxWidth: 'calc(100vw - 48px)', p: 1 }}>
