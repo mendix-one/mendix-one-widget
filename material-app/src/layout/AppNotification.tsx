@@ -24,13 +24,11 @@ export default function AppNotification() {
 
   return (
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
-      <Tooltip title="Show 17 new notifications">
-        <IconButton size="large" aria-label="show 17 new notifications" color="inherit" onClick={handleOpenMenu}>
-          <Badge badgeContent={17} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-      </Tooltip>
+      <IconButton size="large" aria-label="show 17 new notifications" color="primary" onClick={handleOpenMenu}>
+        <Badge badgeContent={17} color="secondary" variant="dot">
+          <NotificationsIcon />
+        </Badge>
+      </IconButton>
       <Menu
         id="user-info-menu"
         anchorEl={anchorElRef.current}

@@ -14,56 +14,54 @@
   <icon />
   <properties>
     <propertyGroup caption="General">
-      <property key="context" type="object" isList="true">
-        <caption>AMZ Web App Context</caption>
-        <description />
-        <properties>
-          <propertyGroup caption="Page Conext And Settings">
-            <property key="settings" type="string" defaultValue="{}">
-              <caption>User Custom Settings</caption>
-              <description>User Custom Settings - Material Design Settings</description>
-            </property>
-            <property key="showLeftSidebar" type="boolean" defaultValue="false">
-              <caption>Left Side Bar State</caption>
-              <description>Left Side Bar State: show or hide</description>
-            </property>
-          </propertyGroup>
-        </properties>
-      </property>
+      <propertyGroup caption="Page Events">
+        <property key="init" type="action" defaultType="CallNanoflow">
+          <caption>Init Page</caption>
+          <description />
+        </property>
+        <property key="enter" type="action" defaultType="CallNanoflow">
+          <caption>Enter Page</caption>
+          <description />
+        </property>
+        <property key="exit" type="action" defaultType="CallNanoflow">
+          <caption>Exit Page</caption>
+          <description />
+        </property>
+      </propertyGroup>
     </propertyGroup>
     <propertyGroup caption="Structure">
       <propertyGroup caption="Top Bar">
         <property key="logo" type="widgets" required="false">
           <caption>Brand Logo</caption>
-          <description>Top Bar - Brand Logo</description>
+          <description />
         </property>
         <property key="navbar" type="widgets" required="false">
           <caption>Navigation Bar</caption>
-          <description>Top Bar - Navigation Bar</description>
+          <description />
         </property>
         <property key="notify" type="widgets" required="false">
-          <caption>Notify</caption>
-          <description>Top Bar - Noitfy Menu</description>
+          <caption>Notify Menu</caption>
+          <description />
         </property>
         <property key="tasks" type="widgets" required="false">
-          <caption>Taks</caption>
-          <description>Top Bar - Tasks Menu</description>
+          <caption>Taks Menu</caption>
+          <description />
         </property>
         <property key="user" type="widgets" required="false">
-          <caption>Users</caption>
-          <description>Top Bar - User Menu</description>
+          <caption>Users Menu</caption>
+          <description />
         </property>
       </propertyGroup>
       <propertyGroup caption="Side Bar">
         <property key="sidebar" type="widgets" required="false">
           <caption>Left Sidebar</caption>
-          <description>Left Sidebar - Pages Menu</description>
+          <description />
         </property>
       </propertyGroup>
       <propertyGroup caption="Main Content">
         <property key="content" type="widgets" required="false">
           <caption>Main Content</caption>
-          <description>Page Main Content</description>
+          <description />
         </property>
       </propertyGroup>
     </propertyGroup>

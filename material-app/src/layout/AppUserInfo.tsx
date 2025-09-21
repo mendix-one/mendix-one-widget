@@ -24,13 +24,9 @@ export default function AppUserInfo() {
 
   return (
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
-      <Tooltip title="Open settings">
+      <Tooltip title="User Settings">
         <IconButton onClick={handleOpenMenu}>
-          <Avatar
-            alt="Remy Sharp"
-            src="/static/images/avatar/2.jpg"
-            sx={{ width: '26px', height: '26px', bgcolor: deepPurple[600] }}
-          />
+          <Avatar alt="Remy Sharp" sx={{ width: '30px', height: '30px', bgcolor: deepPurple[600] }} />
         </IconButton>
       </Tooltip>
       <Menu

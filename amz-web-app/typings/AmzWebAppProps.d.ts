@@ -4,23 +4,16 @@
  * @author Mendix Widgets Framework Team
  */
 import { ComponentType, CSSProperties, ReactNode } from "react";
-
-export interface ContextType {
-    settings: string;
-    showLeftSidebar: boolean;
-}
-
-export interface ContextPreviewType {
-    settings: string;
-    showLeftSidebar: boolean;
-}
+import { ActionValue } from "mendix";
 
 export interface AmzWebAppContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    context: ContextType[];
+    init?: ActionValue;
+    enter?: ActionValue;
+    exit?: ActionValue;
     logo?: ReactNode;
     navbar?: ReactNode;
     notify?: ReactNode;
@@ -41,7 +34,9 @@ export interface AmzWebAppPreviewProps {
     readOnly: boolean;
     renderMode: "design" | "xray" | "structure";
     translate: (text: string) => string;
-    context: ContextPreviewType[];
+    init: {} | null;
+    enter: {} | null;
+    exit: {} | null;
     logo: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     navbar: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     notify: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
