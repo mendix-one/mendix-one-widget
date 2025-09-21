@@ -1,0 +1,23 @@
+@use './variables' as *;
+
+/*
+Place your custom CSS here
+*/
+.amz-user-menu-preview {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .amz-avatar-preview {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $secondary;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
