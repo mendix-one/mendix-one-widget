@@ -10,6 +10,7 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'
 import Alert from '@mui/material/Alert'
 import Button from '@mui/material/Button'
 import AlertTitle from '@mui/material/AlertTitle'
+import { Stack } from '@mui/material'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -51,7 +52,7 @@ export default function AppTasks() {
         sx={{ mt: '32px' }}
       >
         {settings.map((setting) => (
-          <Box key={setting} sx={{ minWidth: '320px', p: 1 }}>
+          <Box key={setting} sx={{ minWidth: '320px', maxWidth: 'calc(100vw - 48px)', p: 1 }}>
             <Alert
               variant="outlined"
               severity="error"
@@ -68,7 +69,7 @@ export default function AppTasks() {
           </Box>
         ))}
         {settings.map((setting) => (
-          <Box key={setting} sx={{ minWidth: '320px', p: 1 }}>
+          <Box key={setting} sx={{ minWidth: '320px', maxWidth: 'calc(100vw - 48px)', p: 1 }}>
             <Alert
               variant="outlined"
               severity="warning"
@@ -85,7 +86,7 @@ export default function AppTasks() {
           </Box>
         ))}
         {settings.map((setting) => (
-          <Box key={setting} sx={{ minWidth: '320px', p: 1 }}>
+          <Box key={setting} sx={{ minWidth: '320px', maxWidth: 'calc(100vw - 48px)', p: 1 }}>
             <Alert
               variant="outlined"
               severity="info"
