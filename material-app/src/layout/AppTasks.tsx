@@ -3,14 +3,11 @@ import Box from '@mui/material/Box'
 import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
 import Badge from '@mui/material/Badge'
-import MenuItem from '@mui/material/MenuItem'
-import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'
 import Alert from '@mui/material/Alert'
 import Button from '@mui/material/Button'
 import AlertTitle from '@mui/material/AlertTitle'
-import { Stack } from '@mui/material'
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -31,7 +28,7 @@ export default function AppTasks() {
       <Tooltip title="Todo Tasks">
         <IconButton size="large" aria-label="show 4 new mails" color="primary" onClick={handleOpenMenu}>
           <Badge badgeContent={4} color="secondary" variant="dot">
-            <FormatListBulletedIcon />
+            <AssignmentIcon />
           </Badge>
         </IconButton>
       </Tooltip>

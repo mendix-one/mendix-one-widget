@@ -6,10 +6,10 @@ import Tooltip from '@mui/material/Tooltip'
 import Badge from '@mui/material/Badge'
 import Menu from '@mui/material/Menu'
 import Typography from '@mui/material/Typography'
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive'
 
 const messages = ['Profile', 'Account', 'Dashboard', 'Logout', 'Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -30,7 +30,7 @@ export default function AppNotify() {
       <Tooltip title="Notification">
         <IconButton size="large" aria-label="show 17 new notifications" color="primary" onClick={handleOpenMenu}>
           <Badge badgeContent={17} color="secondary" variant="dot">
-            <NotificationsNoneIcon />
+            <NotificationsActiveIcon />
           </Badge>
         </IconButton>
       </Tooltip>
@@ -50,7 +50,14 @@ export default function AppNotify() {
         onClose={handleCloseMenu}
         sx={{ mt: '32px' }}
       >
-        <Box sx={{ p: 1 }}>
+        <Box
+          sx={{
+            py: 0.5,
+            px: 1.5,
+            borderBottom: 1,
+            borderColor: grey[400],
+          }}
+        >
           <Stack
             direction="row"
             spacing={2}
@@ -65,7 +72,7 @@ export default function AppNotify() {
                 noWrap
                 sx={{
                   color: 'text.primary',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
                 }}
               >
                 {messages.length} new messages
@@ -78,30 +85,20 @@ export default function AppNotify() {
             </Stack>
           </Stack>
         </Box>
-        <Divider />
         {messages.map((msg, idx) => (
-          <Box
-            key={idx}
-            sx={{ minWidth: '320px', maxWidth: 'calc(100vw - 32px)', p: 1.5, borderBottom: 1, borderColor: grey[400] }}
-          >
+          <Box key={idx} sx={{ maxWidth: 'calc(100vw - 32px)', p: 1.5, borderBottom: 1, borderColor: grey[400] }}>
             <Stack spacing={1}>
               <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
                 <Stack sx={{}}>
-                  <NotificationsNoneIcon fontSize="small" color="primary" />
+                  <NotificationsActiveIcon fontSize="small" color="primary" />
                 </Stack>
-                <Stack sx={{ minWidth: 0 }}>
-                  <Typography
-                    variant="h5"
-                    noWrap
-                    sx={{
-                      color: (theme) => theme.palette.primary.main,
-                    }}
-                  >
+                <Stack sx={{ width: '360px', minWidth: 0, maxWidth: '100%' }}>
+                  <Typography variant="h5" noWrap>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </Typography>
                 </Stack>
               </Stack>
-              <Stack>
+              <Stack sx={{ width: '360px', minWidth: 0, maxWidth: '100%' }}>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                   dolore magna aliqua.
