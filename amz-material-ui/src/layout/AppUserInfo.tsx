@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react'
-import { deepPurple } from '@mui/material/colors'
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
@@ -33,7 +32,7 @@ export default function AppUserInfo() {
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
       <Tooltip title="Account">
         <IconButton onClick={handleOpenMenu}>
-          <Avatar alt="Remy Sharp" sx={{ width: '30px', height: '30px', bgcolor: deepPurple[600] }} />
+          <Avatar alt="Remy Sharp" sx={{ width: '30px', height: '30px', bgcolor: 'secondary.main' }} />
         </IconButton>
       </Tooltip>
       <Menu
@@ -59,8 +58,8 @@ export default function AppUserInfo() {
             </ListItemIcon>
             <ListItemText
               sx={{
-                color: (theme) => theme.palette.primary.main,
-                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.primary.main },
+                color: 'primary.main',
+                [`& .MuiListItemText-primary`]: { color: 'primary.main' },
               }}
             >
               English (United State)
@@ -75,8 +74,8 @@ export default function AppUserInfo() {
             </ListItemIcon>
             <ListItemText
               sx={{
-                color: (theme) => theme.palette.primary.main,
-                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.primary.main },
+                color: 'primary.main',
+                [`& .MuiListItemText-primary`]: { color: 'primary.main' },
               }}
             >
               Account Profile
@@ -91,8 +90,8 @@ export default function AppUserInfo() {
             </ListItemIcon>
             <ListItemText
               sx={{
-                color: (theme) => theme.palette.primary.main,
-                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.primary.main },
+                color: 'primary.main',
+                [`& .MuiListItemText-primary`]: { color: 'primary.main' },
               }}
             >
               Change Password
@@ -107,8 +106,8 @@ export default function AppUserInfo() {
             </ListItemIcon>
             <ListItemText
               sx={{
-                color: (theme) => theme.palette.primary.main,
-                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.primary.main },
+                color: 'primary.main',
+                [`& .MuiListItemText-primary`]: { color: 'primary.main' },
               }}
             >
               Custom Settings
@@ -124,13 +123,13 @@ export default function AppUserInfo() {
             </ListItemIcon>
             <ListItemText
               sx={{
-                color: (theme) => theme.palette.primary.main,
-                [`& .MuiListItemText-primary`]: { color: (theme) => theme.palette.error.main },
+                color: 'error.main',
+                [`& .MuiListItemText-primary`]: { color: 'error.main' },
               }}
             >
               Logout
             </ListItemText>
-            <Typography variant="body2" sx={{ color: { color: (theme) => theme.palette.error.main }, pl: 2 }}>
+            <Typography variant="body2" sx={{ color: { color: 'error.main' }, pl: 2 }}>
               ⌘ ⇧ Q
             </Typography>
           </MenuItem>

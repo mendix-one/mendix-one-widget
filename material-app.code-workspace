@@ -1,8 +1,16 @@
 {
 	"folders": [
 		{
-			"name": "material-app",
-			"path": "material-app"
+			"name": "amz-material-ui",
+			"path": "amz-material-ui"
+		},
+		{
+			"name": "amz-web-ui",
+			"path": "amz-web-ui"
+		},
+		{
+			"name": "amz-web-page",
+			"path": "amz-web-page"
 		},
 		{
 			"name": "amz-web-app",
