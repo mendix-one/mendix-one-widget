@@ -1,5 +1,4 @@
 import { useMemo, useRef, useState } from 'react'
-import { grey } from '@mui/material/colors';
 import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import AppBar from '@mui/material/AppBar'
@@ -24,6 +23,20 @@ function App() {
   const defaultSettings = useRef({
     spacing: 8,
     palette: {
+      mode: 'light',
+      common: {
+        white: '#ffffff',
+        black: '#333333',
+        grey: '#f5f5f5',
+      },
+      text: {
+        primary: '#333333',
+        secondary: '#757575',
+        disable: '#bdbdbd',
+        title: '#1060b0',
+        important: '#603890',
+        tertiary: '#00897b',
+      },
       primary: {
         light: '#8fc6f0',
         main: '#1060b0',
@@ -47,12 +60,6 @@ function App() {
         main: '#dd0000',
         dark: '#dd0000',
         contrastText: '#ffffff',
-      },
-      background: {
-        light: grey['A100'],
-        main: grey['A100'],
-        dark: grey['A100'],
-        contrastText: '#333333',
       },
     },
     typography: {
@@ -109,6 +116,8 @@ function App() {
     return createTheme({ ...deafult, ...customSettings } as any)
   }, [customSettings])
 
+  console.log(theme)
+
   const [drawer, setDrawer] = useState(false)
   const toggleDrawer = (show: boolean) => () => {
     setDrawer(show)
@@ -117,7 +126,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="fixed" color="transparent" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2 , backgroundColor: '#ffffff'}}>
+      <AppBar
+        position="fixed"
+        color="transparent"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2, backgroundColor: 'common.white' }}
+      >
         <Toolbar variant="dense" disableGutters={true}>
           <Box sx={{ display: 'flex', width: `${drawerWidth}px` }}>
             <Box sx={{ flexGrow: 1 }}>
@@ -162,9 +175,14 @@ function App() {
         color="transparent"
         sx={{
           width: drawerWidth,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', background: 'transparent', border: 'none' },
-          backgroundColor: grey['A100'],
-          border: 'none'
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            background: 'transparent',
+            border: 'none',
+          },
+          backgroundColor: 'common.grey',
+          border: 'none',
         }}
       >
         <Toolbar variant="dense" disableGutters={true} />
@@ -179,7 +197,7 @@ function App() {
           width: '100%',
           height: 'auto',
           minHeight: 'calc(100% - 48px)',
-          backgroundColor: grey['A100']
+          backgroundColor: 'common.grey',
         }}
       >
         <Box sx={{ flexGrow: 0, height: 'auto', minHeight: '100%' }}>

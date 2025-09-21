@@ -3,7 +3,7 @@ import { AmzWebAppPreviewProps } from '../typings/AmzWebAppProps'
 export function preview(props: AmzWebAppPreviewProps) {
   return (
     <div className="amz-web-app-preview">
-      <div className="amz-top-bar px-2 d-flex justify-content-between align-items-center">
+      <div className="amz-top-bar shadow border-bottom px-2 d-flex justify-content-between align-items-center">
         <div className="left-box pe-2 flex-grow-0">
           <div className="d-flex justify-content-between align-items-center">
             <div className="brand-logo flex-grow-1">
@@ -12,7 +12,7 @@ export function preview(props: AmzWebAppPreviewProps) {
               </props.logo.renderer>
             </div>
             <div className="sidebar-toogle flex-grow-0 h-100 amz-center-center">
-              <i className="mdi mdi-menu text-light fs-4"></i>
+              <i className="mdi mdi-menu text-primary fs-4"></i>
             </div>
           </div>
         </div>

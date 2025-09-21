@@ -26,6 +26,20 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
   const defaultSettings = useRef({
     spacing: 8,
     palette: {
+      mode: 'light',
+      common: {
+        white: '#ffffff',
+        black: '#333333',
+        grey: '#f5f5f5',
+      },
+      text: {
+        primary: '#333333',
+        secondary: '#757575',
+        disable: '#bdbdbd',
+        title: '#1060b0',
+        important: '#603890',
+        tertiary: '#00897b',
+      },
       primary: {
         light: '#8fc6f0',
         main: '#1060b0',
@@ -88,7 +102,6 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
       button: {
         fontSize: 14,
         textTransform: 'capitalize',
-        fontWeight: 600,
       },
       caption: {
         fontSize: 13,
@@ -113,7 +126,11 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="fixed" color="primary" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2 }}>
+      <AppBar
+        position="fixed"
+        color="transparent"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2, backgroundColor: 'common.white' }}
+      >
         <Toolbar variant="dense" disableGutters={true}>
           <Box sx={{ display: 'flex', width: `${drawerWidth}px` }}>
             <Box sx={{ flexGrow: 1 }}>{props.logo}</Box>
@@ -121,7 +138,7 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
               <IconButton
                 size="large"
                 edge="start"
-                color="inherit"
+                color="primary"
                 aria-label="menu"
                 sx={{ mr: 2 }}
                 onClick={toggleDrawer(!drawer)}
@@ -133,15 +150,9 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
           <Box sx={{ flexGrow: 1 }}>{props.navbar}</Box>
           <Box sx={{ flexGrow: 0 }}>
             <Stack direction="row" spacing={1}>
-              <Box>
-                {props.notify}
-              </Box>
-              <Box>
-                {props.tasks}
-              </Box>
-              <Box>
-                {props.user}
-              </Box>
+              <Box>{props.notify}</Box>
+              <Box>{props.tasks}</Box>
+              <Box>{props.user}</Box>
             </Stack>
           </Box>
         </Toolbar>
@@ -151,15 +162,21 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
         open={drawer}
         variant={drawer ? `permanent` : 'temporary'}
         hideBackdrop={true}
+        color="transparent"
         sx={{
           width: drawerWidth,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth,
+            boxSizing: 'border-box',
+            background: 'transparent',
+            border: 'none',
+          },
+          backgroundColor: 'common.grey',
+          border: 'none',
         }}
       >
         <Toolbar variant="dense" disableGutters={true} />
-        <Box sx={{ px: 1, overflowX: 'hidden', overflowY: 'auto' }}>
-          {props.sidebar}
-        </Box>
+        <Box sx={{ px: 1, overflowX: 'hidden', overflowY: 'auto' }}>{props.sidebar}</Box>
       </Drawer>
       <Box
         id="id-body-container"
@@ -168,6 +185,7 @@ export default function AmzWebAppLayout(props: AmzWebAppLayoutProps) {
           width: '100%',
           height: 'auto',
           minHeight: 'calc(100% - 48px)',
+          backgroundColor: 'common.grey',
         }}
       >
         <Box sx={{ flexGrow: 0, height: 'auto', minHeight: '100%' }}>
