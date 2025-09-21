@@ -1,23 +1,81 @@
 @use './variables' as *;
 
-/*
-Place your custom CSS here
-*/
-.amz-user-menu-preview {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+$topbar-height: calc(12 * unit);
 
-  .amz-avatar-preview {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: $secondary;
-    color: $white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+$sidebar-width: calc(50 * unit);
+
+.amz-web-page-preview {
+  > .amz-web-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    background-color: $background;
+  }
+
+  .amz-web-topbar {
+    height: $topbar-height;
+    background: $white;
+    border-bottom: $border;
+    box-shadow: $shadow;
+
+    > .amz-web-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .aamz-web-brand {
+      flex-grow: 0;
+      width: $sidebar-width;
+      height: 100%;
+    }
+
+    .amz-web-nav {
+      flex-grow: 1;
+      height: 100%;
+    }
+
+    .amz-web-menu {
+      flex-grow: 0;
+      height: 100%;
+    }
+  }
+
+  .amz-web-body {
+    > .amz-web-wrapper {
+      width: 100%;
+      height: calc(100% - $topbar-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .amz-web-sidebar {
+      flex-grow: 0;
+      width: $sidebar-width;
+      height: 100%;
+
+      > .amz-web-wrapper {
+        width: 100%;
+        min-height: 100%;
+        display: block;
+      }
+    }
+
+    .amz-web-content {
+      flex-grow: 1;
+      min-height: 100%;
+
+      > .amz-web-wrapper {
+        width: 100%;
+        min-height: 100%;
+        display: block;
+      }
+    }
   }
 }

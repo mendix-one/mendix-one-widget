@@ -8,7 +8,7 @@ module.exports = {
   htmlWhitespaceSensitivity: 'css',
   insertPragma: false,
   jsxBracketSameLine: false,
-  jsxSingleQuote: true,
+  jsxSingleQuote: false,
   printWidth: 120,
   proseWrap: 'always',
   quoteProps: 'as-needed',
