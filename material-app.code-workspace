@@ -1,28 +1,36 @@
 {
 	"folders": [
 		{
+			"name": "material-app",
 			"path": "material-app"
 		},
 		{
+			"name": "amz-web-app",
 			"path": "amz-web-app"
 		},
 		{
+			"name": "amz-top-logo",
+			"path": "amz-top-logo"
+		},
+		{
+			"name": "amz-user-menu",
+			"path": "amz-user-menu"
+		},
+		{
+			"name": "amz-top-nav",
 			"path": "amz-top-nav"
 		},
 		{
+			"name": "amz-top-notify",
 			"path": "amz-top-notify"
 		},
 		{
+			"name": "amz-top-tasks",
 			"path": "amz-top-tasks"
 		},
 		{
-			"path": "amz-user-info"
-		},
-		{
+			"name": "amz-left-nav",
 			"path": "amz-left-nav"
-		},
-		{
-			"path": "../Mendix/MendixOneKit/themesource/amzui"
 		}
 	],
 	"settings": {}
