@@ -1,5 +1,4 @@
-@use './roboto/mixins' as Roboto;
-@include Roboto.faces();
+@use 'roboto/roboto.scss';
 
 html,
 body {
