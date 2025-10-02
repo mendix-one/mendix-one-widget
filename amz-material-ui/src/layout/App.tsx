@@ -1,0 +1,248 @@
+import { useMemo, useRef, useState } from 'react'
+import { Outlet } from 'react-router'
+import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import Box from '@mui/material/Box'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import Stack from '@mui/material/Stack'
+import Drawer from '@mui/material/Drawer'
+import Collapse from '@mui/material/Collapse'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
+import AppLogo from './/AppLogo'
+import AppLeftBar from './/AppLeftNav'
+import AppUserInfo from './/AppUserInfo'
+import AppTopNav from './/AppTopNav'
+import CssBaseline from '@mui/material/CssBaseline'
+import AppTasks from './/AppTasks'
+import AppNotify from './/AppNotify'
+
+const drawerWidth = 200
+
+function App() {
+  const defaultSettings = useRef({
+    spacing: 8,
+    palette: {
+      mode: 'light',
+      common: {
+        white: '#ffffff',
+        black: '#333333',
+        grey: '#f5f5f5',
+      },
+      text: {
+        primary: '#333333',
+        secondary: '#757575',
+        disable: '#bdbdbd',
+        title: '#1060b0',
+        important: '#603890',
+        tertiary: '#00897b',
+      },
+      primary: {
+        light: '#8fc6f0',
+        main: '#1060b0',
+        dark: '#034391',
+        contrastText: '#ffffff',
+      },
+      secondary: {
+        light: '#cfc4df',
+        main: '#603890',
+        dark: '#3b206d',
+        contrastText: '#ffffff',
+      },
+      tertiary: {
+        light: '#b2dfdb',
+        main: '#00897b',
+        dark: '#004d40',
+        contrastText: '#ffffff',
+      },
+      error: {
+        light: '#ffcbbc',
+        main: '#dd0000',
+        dark: '#dd0000',
+        contrastText: '#ffffff',
+      },
+    },
+    typography: {
+      fontSize: 14,
+      htmlFontSize: 14,
+      fontFamily: 'Roboto, sans-serif',
+      h1: {
+        fontSize: 24,
+      },
+      h2: {
+        fontSize: 20,
+      },
+      h3: {
+        fontSize: 18,
+      },
+      h4: {
+        fontSize: 16,
+      },
+      h5: {
+        fontSize: 14,
+      },
+      h6: {
+        fontSize: 12,
+      },
+      subtitle1: {
+        fontSize: 16,
+      },
+      subtitle2: {
+        fontSize: 14,
+      },
+      body1: {
+        fontSize: 14,
+      },
+      body2: {
+        fontSize: 12,
+      },
+      button: {
+        fontSize: 14,
+        textTransform: 'capitalize',
+      },
+      caption: {
+        fontSize: 13,
+      },
+      overline: {
+        fontSize: 14,
+      },
+    },
+  })
+  const [customSettings, setCustomSettings] = useState({})
+
+  const theme = useMemo((): Theme => {
+    const deafult = defaultSettings.current || {}
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return createTheme({ ...deafult, ...customSettings } as any)
+  }, [customSettings])
+
+  console.log(theme)
+
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+
+  const [drawer, setDrawer] = useState(false)
+  const toggleDrawer = (show: boolean) => () => {
+    setDrawer(show)
+  }
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        color="transparent"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2, backgroundColor: 'common.white' }}
+      >
+        <Toolbar variant="dense" disableGutters={true}>
+          <Box sx={{ flexGrow: 0, width: isDesktop ? `${drawerWidth}px` : 'auto', maxHeight: '100%' }}>
+            <Box
+              sx={{
+                width: '100%',
+                maxHeight: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <Box sx={{ flexGrow: 1, maxHeight: '100%' }}>
+                <AppLogo />
+              </Box>
+              {isDesktop ? (
+                <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
+                  <IconButton
+                    size="large"
+                    edge="start"
+                    color="primary"
+                    aria-label="menu"
+                    onClick={toggleDrawer(!drawer)}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Box>
+              ) : (
+                <></>
+              )}
+            </Box>
+          </Box>
+          <Box sx={{ flexGrow: 1, maxHeight: '100%' }}>
+            <AppTopNav />
+          </Box>
+          <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
+            <Stack direction="row" spacing={1}>
+              <Stack>
+                <AppTasks />
+              </Stack>
+              <Stack>
+                <AppNotify />
+              </Stack>
+              <Stack>
+                <AppUserInfo />
+              </Stack>
+            </Stack>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Toolbar variant="dense" disableGutters={true} />
+      {isDesktop ? (
+        <Drawer
+          open={drawer}
+          variant={drawer ? `permanent` : 'temporary'}
+          hideBackdrop={true}
+          color="transparent"
+          sx={{
+            width: drawerWidth,
+            [`& .MuiDrawer-paper`]: {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+              background: 'transparent',
+              border: 'none',
+            },
+            backgroundColor: 'common.grey',
+            border: 'none',
+          }}
+        >
+          <Toolbar variant="dense" disableGutters={true} />
+          <Box sx={{ px: 1, overflowX: 'hidden', overflowY: 'auto' }}>
+            <AppLeftBar />
+          </Box>
+        </Drawer>
+      ) : (
+        <></>
+      )}
+      <Box
+        sx={{
+          display: { xs: 'block', sm: 'block', md: 'block', lg: 'flex' },
+          width: '100%',
+          height: 'auto',
+          minHeight: 'calc(100% - 48px)',
+          backgroundColor: 'common.grey',
+        }}
+      >
+        {isDesktop ? (
+          <Box sx={{ flexGrow: 0, height: 'auto', minHeight: '100%' }}>
+            <Collapse orientation="horizontal" in={drawer} timeout={100}>
+              <Box sx={{ width: `${drawerWidth}px`, height: 'calc(100vh - 48px)' }}>&nbsp;</Box>
+            </Collapse>
+          </Box>
+        ) : (
+          <></>
+        )}
+        <Box
+          sx={{
+            p: 2,
+            flexGrow: 1,
+            height: 'auto',
+            minHeight: '100%',
+          }}
+        >
+          <Box sx={{ with: '100%', height: 'auto', minHeight: '100%' }}>
+            <Outlet />
+          </Box>
+        </Box>
+      </Box>
+    </ThemeProvider>
+  )
+}
+
+export default App
