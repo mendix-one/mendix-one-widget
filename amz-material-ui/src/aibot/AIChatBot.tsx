@@ -81,7 +81,10 @@ const listMessages = [
 ]
 
 export default function AIChatBot(props: AIChatBotProps) {
+  const refListInputBox = useRef<HTMLElement>(null)
   const refListMessagesBox = useRef<HTMLElement>(null)
+
+  const [sizeInputHeight, setSizeInputHeight] = useState(54)
 
   const [msg, setMsg] = useState('')
   const [messages, setMessages] = useState(listMessages)
@@ -139,6 +142,26 @@ export default function AIChatBot(props: AIChatBotProps) {
       refListMessagesBox.current.scrollTop = refListMessagesBox.current.scrollHeight
     }
   }, [messages])
+
+  useEffect(() => {
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === refListInputBox.current) {
+          setSizeInputHeight(entry.contentRect.height)
+        }
+      }
+    })
+
+    if (refListInputBox.current) {
+      observer.observe(refListInputBox.current)
+    }
+
+    return () => {
+      if (refListInputBox.current) {
+        observer.unobserve(refListInputBox.current)
+      }
+    }
+  }, [])
 
   return (
     <Box
@@ -205,9 +228,9 @@ export default function AIChatBot(props: AIChatBotProps) {
         sx={{
           p: 2,
           width: '100%',
-          height: `calc(100% - 40px -  54px)`,
+          height: `calc(100% - 40px -  ${sizeInputHeight}px)`,
           maxWidth: '100%',
-          maxHeight: `calc(100% - 40px -  54px)`,
+          maxHeight: `calc(100% - 40px -  ${sizeInputHeight}px)`,
           overflowX: 'hidden',
           overflowY: 'auto',
         }}
@@ -273,6 +296,7 @@ export default function AIChatBot(props: AIChatBotProps) {
         ))}
       </Box>
       <Box
+        ref={refListInputBox}
         sx={{
           position: 'absolute',
           top: 'auto',
