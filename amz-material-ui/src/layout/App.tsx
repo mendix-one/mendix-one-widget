@@ -25,7 +25,7 @@ import AIChatBot from '../aibot/AIChatBot'
 const cfxSideBarLeftWidth = 220
 const cfxSideBarRightWidth = 320
 
-function App() {
+export default function App() {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 
@@ -54,6 +54,10 @@ function App() {
       }, 100)
     }
   }, [isShowingSidebarRight])
+
+  const onCloseChatBox = () => {
+    setIsShowingSidebarRight(false)
+  }
 
   return (
     <Box sx={{ width: '100%', height: '100%', minWidth: '', minHeight: '100%', maxWidth: '100%', maxHeight: 'auto' }}>
@@ -188,12 +192,10 @@ function App() {
             <Toolbar variant="dense" disableGutters={true} />
           </Box>
           <Box sx={{ width: '100%', height: 'calc(100% - 48px)' }}>
-            <AIChatBot />
+            <AIChatBot onClose={onCloseChatBox}/>
           </Box>
         </Box>
       </Drawer>
     </Box>
   )
 }
-
-export default App

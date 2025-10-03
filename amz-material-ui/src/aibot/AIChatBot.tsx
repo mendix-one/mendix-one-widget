@@ -25,7 +25,11 @@ import FilePresentOutlinedIcon from '@mui/icons-material/FilePresentOutlined'
 import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined'
 import DataObjectOutlinedIcon from '@mui/icons-material/DataObjectOutlined'
 
-export default function AIChatBot() {
+export type AIChatBotProps = {
+  onClose: () => void
+}
+
+export default function AIChatBot(props: AIChatBotProps) {
   const [isShowingAttachment, setIsShowingAttachment] = useState<boolean>(false)
   return (
     <Box
@@ -74,12 +78,12 @@ export default function AIChatBot() {
               }}
             >
               <Stack>
-                <IconButton tabIndex={3002} size="small" color="primary">
+                <IconButton tabIndex={3002} size="small" color="primary" disabled>
                   <PushPinOutlinedIcon sx={{ fontSize: '1.25rem' }} />
                 </IconButton>
               </Stack>
               <Stack>
-                <IconButton tabIndex={3002} size="small" color="primary">
+                <IconButton tabIndex={3002} size="small" color="primary" onClick={props.onClose}>
                   <CloseOutlinedIcon sx={{ fontSize: '1.25rem' }} />
                 </IconButton>
               </Stack>
