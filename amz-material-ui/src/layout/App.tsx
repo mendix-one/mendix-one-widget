@@ -1,7 +1,5 @@
-import { useMemo, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Outlet } from 'react-router'
-import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
-import useMediaQuery from '@mui/material/useMediaQuery'
 import Box from '@mui/material/Box'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
@@ -14,121 +12,20 @@ import AppLogo from './/AppLogo'
 import AppLeftBar from './/AppLeftNav'
 import AppUserInfo from './/AppUserInfo'
 import AppTopNav from './/AppTopNav'
-import CssBaseline from '@mui/material/CssBaseline'
 import AppTasks from './/AppTasks'
 import AppNotify from './/AppNotify'
 
 const drawerWidth = 200
 
 function App() {
-  const defaultSettings = useRef({
-    spacing: 8,
-    palette: {
-      mode: 'light',
-      common: {
-        white: '#ffffff',
-        black: '#333333',
-        grey: '#f5f5f5',
-      },
-      text: {
-        primary: '#333333',
-        secondary: '#757575',
-        disable: '#bdbdbd',
-        title: '#1060b0',
-        important: '#603890',
-        tertiary: '#00897b',
-      },
-      primary: {
-        light: '#8fc6f0',
-        main: '#1060b0',
-        dark: '#034391',
-        contrastText: '#ffffff',
-      },
-      secondary: {
-        light: '#cfc4df',
-        main: '#603890',
-        dark: '#3b206d',
-        contrastText: '#ffffff',
-      },
-      tertiary: {
-        light: '#b2dfdb',
-        main: '#00897b',
-        dark: '#004d40',
-        contrastText: '#ffffff',
-      },
-      error: {
-        light: '#ffcbbc',
-        main: '#dd0000',
-        dark: '#dd0000',
-        contrastText: '#ffffff',
-      },
-    },
-    typography: {
-      fontSize: 14,
-      htmlFontSize: 14,
-      fontFamily: 'Roboto, sans-serif',
-      h1: {
-        fontSize: 24,
-      },
-      h2: {
-        fontSize: 20,
-      },
-      h3: {
-        fontSize: 18,
-      },
-      h4: {
-        fontSize: 16,
-      },
-      h5: {
-        fontSize: 14,
-      },
-      h6: {
-        fontSize: 12,
-      },
-      subtitle1: {
-        fontSize: 16,
-      },
-      subtitle2: {
-        fontSize: 14,
-      },
-      body1: {
-        fontSize: 14,
-      },
-      body2: {
-        fontSize: 12,
-      },
-      button: {
-        fontSize: 14,
-        textTransform: 'capitalize',
-      },
-      caption: {
-        fontSize: 13,
-      },
-      overline: {
-        fontSize: 14,
-      },
-    },
-  })
-  const [customSettings, setCustomSettings] = useState({})
-
-  const theme = useMemo((): Theme => {
-    const deafult = defaultSettings.current || {}
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return createTheme({ ...deafult, ...customSettings } as any)
-  }, [customSettings])
-
-  console.log(theme)
-
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
-
+  const isDesktop = true
   const [drawer, setDrawer] = useState(false)
   const toggleDrawer = (show: boolean) => () => {
     setDrawer(show)
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <>
       <AppBar
         position="fixed"
         color="transparent"
@@ -241,7 +138,7 @@ function App() {
           </Box>
         </Box>
       </Box>
-    </ThemeProvider>
+    </>
   )
 }
 
