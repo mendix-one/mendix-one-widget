@@ -7,6 +7,8 @@ import MyThem from './theme'
 
 import App from './layout/App'
 import DashboardPage from './pages/home/DashboardPage'
+import LoginPage from './pages/auth/login/LoginPage'
+import LogoutPage from './pages/auth/logout/LogoutPage'
 
 export default function Root() {
   const theme = useMemo((): Theme => {
@@ -22,6 +24,8 @@ export default function Root() {
           <Route element={<App />}>
             <Route index element={<DashboardPage />} />
           </Route>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/logout" element={<LogoutPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

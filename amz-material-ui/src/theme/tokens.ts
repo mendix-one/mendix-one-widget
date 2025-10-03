@@ -171,7 +171,7 @@ export default {
       fontSize: '0.875rem',
       lineHeight: 1.428571428571430,
       letterSpacing: 0,
-      textTransform: 'uppercase',
+      textTransform: 'capitalize',
     },
     caption: {
       fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
