@@ -7,7 +7,10 @@ import Menu from '@mui/material/Menu'
 import Alert from '@mui/material/Alert'
 import Button from '@mui/material/Button'
 import AlertTitle from '@mui/material/AlertTitle'
+
+import BallotOutlinedIcon from '@mui/icons-material/BallotOutlined';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined'
+import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -27,8 +30,8 @@ export default function AppTasks() {
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
       <Tooltip title="Todo Tasks">
         <IconButton size="large" aria-label="show 4 new mails" color="primary" onClick={handleOpenMenu}>
-          <Badge badgeContent={4} color="secondary" variant="dot">
-            <AssignmentOutlinedIcon />
+          <Badge badgeContent={4} color="urgent" variant="dot">
+            <DnsOutlinedIcon />
           </Badge>
         </IconButton>
       </Tooltip>

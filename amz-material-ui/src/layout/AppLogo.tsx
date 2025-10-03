@@ -22,13 +22,13 @@ export default function AppLogo() {
       <Box sx={{ width: '32px', height: '32px', '> img': { maxWidth: '32px', maxHeight: '32px' } }}>
         <img src="/icon.png" />
       </Box>
-      <Box sx={{ pl: 1 }}>
+      <Box sx={{ pl: 2 }}>
         <Typography
           variant="h3"
           component="h3"
-          color="primary"
+          color="secondary"
           sx={{
-            fontWeight: 900,
+            fontWeight: 800,
           }}
         >
           Mx One UI

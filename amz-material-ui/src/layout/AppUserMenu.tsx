@@ -16,7 +16,7 @@ import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest'
 import TranslateIcon from '@mui/icons-material/Translate'
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined'
 
-export default function AppUserInfo() {
+export default function AppUserMenu() {
   const anchorElRef = useRef<HTMLElement | undefined>()
   const [showMenu, setShowMenu] = useState<boolean>(false)
 
