@@ -10,6 +10,9 @@ import Drawer from '@mui/material/Drawer'
 import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+
+import { blueGrey } from '@mui/material/colors'
 
 import AppLogo from './AppLogo'
 import AppTasks from './AppTasks'
@@ -167,9 +170,31 @@ export default function App() {
           '& > .MuiBackdrop-root': { opacity: '0.25 !important' },
         }}
       >
-        <Toolbar variant="dense" disableGutters={true} />
-        <Box sx={{ width: cfxSideBarLeftWidth }}>
-          <AppLeftNav />
+        <Box sx={{ width: cfxSideBarLeftWidth, height: '100%', overflow: 'hidden' }}>
+          <Box sx={{ overflow: 'hidden' }}>
+            <Toolbar variant="dense" disableGutters={true} />
+          </Box>
+          <Box sx={{ width: '100%', height: 'calc(100% - 48px - 40px)', overflowX: 'hidden', overflowY: 'auto' }}>
+            <AppLeftNav />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 'auto',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: 'auto',
+              width: '100%',
+              borderTop: 1,
+              borderColor: blueGrey[100],
+              backgroundColor: blueGrey[50],
+            }}
+          >
+            <Box sx={{ p: 2 }}>
+              <Typography variant="subtitle2">© Mendix One 2025.</Typography>
+            </Box>
+          </Box>
         </Box>
       </Drawer>
       <Drawer
@@ -192,7 +217,7 @@ export default function App() {
             <Toolbar variant="dense" disableGutters={true} />
           </Box>
           <Box sx={{ width: '100%', height: 'calc(100% - 48px)' }}>
-            <AIChatBot onClose={onCloseChatBox}/>
+            <AIChatBot onClose={onCloseChatBox} />
           </Box>
         </Box>
       </Drawer>
