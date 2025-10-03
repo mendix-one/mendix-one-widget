@@ -27,7 +27,7 @@ export default function AppNotify() {
   return (
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
       <Tooltip title="Notification">
-        <IconButton size="large" aria-label="show 17 new notifications" color="primary" onClick={handleOpenMenu}>
+        <IconButton size="large" color="primary" tabIndex={1012} onClick={handleOpenMenu}>
           <Badge badgeContent={17} color="urgent" variant="dot">
             <NotificationsActiveOutlinedIcon />
           </Badge>

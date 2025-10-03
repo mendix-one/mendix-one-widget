@@ -29,7 +29,7 @@ export default function AppTasks() {
   return (
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
       <Tooltip title="Todo Tasks">
-        <IconButton size="large" aria-label="show 4 new mails" color="primary" onClick={handleOpenMenu}>
+        <IconButton size="large" color="primary" tabIndex={1011} onClick={handleOpenMenu}>
           <Badge badgeContent={4} color="urgent" variant="dot">
             <DnsOutlinedIcon />
           </Badge>

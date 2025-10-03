@@ -31,7 +31,7 @@ export default function AppUserMenu() {
   return (
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
       <Tooltip title="Account">
-        <IconButton onClick={handleOpenMenu}>
+        <IconButton onClick={handleOpenMenu} tabIndex={1015}>
           <Avatar alt="Remy Sharp" sx={{ width: '30px', height: '30px', bgcolor: 'secondary.main' }} />
         </IconButton>
       </Tooltip>

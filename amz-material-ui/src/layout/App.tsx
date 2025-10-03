@@ -1,26 +1,32 @@
 import { useState } from 'react'
 import { Outlet } from 'react-router'
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import Box from '@mui/material/Box'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Stack from '@mui/material/Stack'
+import Drawer from '@mui/material/Drawer'
+import Badge from '@mui/material/Badge'
+import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
+
 import AppLogo from './AppLogo'
-import AppUserMenu from './AppUserMenu'
 import AppTasks from './AppTasks'
 import AppNotify from './AppNotify'
+import AppUserMenu from './AppUserMenu'
 
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined'
-import Drawer from '@mui/material/Drawer'
-import Tooltip from '@mui/material/Tooltip'
-import Badge from '@mui/material/Badge'
+import MenuIcon from '@mui/icons-material/Menu'
+
+import AppLeftNav from './AppLeftNav'
 
 const cfxSideBarLeftWidth = 220
 const cfxSideBarRightWidth = 320
 
 function App() {
-  const isDesktop = true
+  const theme = useTheme()
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 
   const [isShowingSidebarLeft, setIsShowingSidebarLeft] = useState(false)
   const [isShowingSidebarRight, setIsShowingSidebarRight] = useState(false)
@@ -42,21 +48,23 @@ function App() {
                 justifyContent: 'space-between',
               }}
             >
-              <Box sx={{ flexGrow: 1, maxHeight: '100%' }}>
+              <Box sx={{ flexGrow: 1, maxHeight: '100%', pr: 4 }}>
                 <AppLogo />
               </Box>
               <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="primary"
-                  aria-label="menu"
-                  onClick={() => {
-                    setIsShowingSidebarLeft(!isShowingSidebarLeft)
-                  }}
-                >
-                  <MenuIcon />
-                </IconButton>
+                <Tooltip title="Navigation">
+                  <IconButton
+                    size="large"
+                    edge="start"
+                    color="primary"
+                    tabIndex={1001}
+                    onClick={() => {
+                      setIsShowingSidebarLeft(!isShowingSidebarLeft)
+                    }}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Tooltip>
               </Box>
             </Box>
           </Box>
@@ -74,8 +82,8 @@ function App() {
                   <Tooltip title="Assistant Bot">
                     <IconButton
                       size="large"
-                      aria-label="show 4 new mails"
                       color="primary"
+                       tabIndex={1014}
                       onClick={() => {
                         setIsShowingSidebarRight(!isShowingSidebarRight)
                       }}
@@ -116,7 +124,9 @@ function App() {
         }}
       >
         <Toolbar variant="dense" disableGutters={true} />
-        <Box sx={{ width: cfxSideBarLeftWidth }}>isShowingSidebarLeft</Box>
+        <Box sx={{ width: cfxSideBarLeftWidth }}>
+          <AppLeftNav />
+        </Box>
       </Drawer>
       <Drawer
         anchor="right"

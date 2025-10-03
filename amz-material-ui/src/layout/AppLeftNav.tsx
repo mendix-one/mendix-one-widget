@@ -80,15 +80,15 @@ const listsItems = [
   ],
 ]
 
-export default function AppLeftBar() {
+export default function AppLeftNav() {
   return (
-    <Box sx={{ width: '100%', py: 1 }} role="presentation">
+    <Box sx={{ p: 2 }} role="presentation">
       {listsItems.map((List, idx) => (
         <Box key={idx} sx={{ width: '100%' }}>
           <MenuList>
             {List.map((item, index) => (
               <MenuItem key={index} sx={{ px: 0.5, [`& .MuiListItemIcon-root`]: { minWidth: '28px' } }}>
-                <ListItemIcon sx={{ minWidth: '28px' }}>
+                <ListItemIcon sx={{ minWidth: '28px', fontSize: 'typography.body2.fontSize' }}>
                   <item.icon fontSize="small" color="primary" />
                 </ListItemIcon>
                 <ListItemText
