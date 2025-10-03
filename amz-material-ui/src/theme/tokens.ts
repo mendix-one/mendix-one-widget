@@ -188,6 +188,13 @@ export default {
       letterSpacing: 0,
       textTransform: 'capitalize',
     },
+    tiny: {
+      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+      fontWeight: 400,
+      fontSize: '0.875rem',
+      lineHeight: 1,
+      letterSpacing: 0,
+    },
     inherit: {
       fontFamily: 'inherit',
       fontWeight: 'inherit',

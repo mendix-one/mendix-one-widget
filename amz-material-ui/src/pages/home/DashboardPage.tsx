@@ -1,9 +1,9 @@
-import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 
 export default function DashboardPage() {
   return (
-    <Box>
+    <Paper sx={{boxShadow: 1, p: 2}}>
       <Typography sx={{ marginBottom: 2 }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
@@ -24,6 +24,6 @@ export default function DashboardPage() {
         eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices
         sagittis orci a.
       </Typography>
-    </Box>
+    </Paper>
   )
 }

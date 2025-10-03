@@ -40,7 +40,7 @@ export default function AppUserMenu() {
     <Box ref={anchorElRef} sx={{ with: '100%', height: '100%' }}>
       <Tooltip title="Account">
         <IconButton onClick={handleOpenMenu} tabIndex={1015}>
-          <Avatar alt="Administrator" sx={{ width: 32, height: 32, bgcolor: 'secondary.main' }} />
+          <Avatar alt="Administrator" sx={{ width: 32, height: 32, bgcolor: 'primary.main' }} />
         </IconButton>
       </Tooltip>
       <Menu

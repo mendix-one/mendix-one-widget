@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
@@ -16,10 +16,11 @@ import AppTasks from './AppTasks'
 import AppNotify from './AppNotify'
 import AppUserMenu from './AppUserMenu'
 
-import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined'
 import MenuIcon from '@mui/icons-material/Menu'
+import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined'
 
 import AppLeftNav from './AppLeftNav'
+import AIChatBot from '../aibot/AIChatBot'
 
 const cfxSideBarLeftWidth = 220
 const cfxSideBarRightWidth = 320
@@ -31,11 +32,34 @@ function App() {
   const [isShowingSidebarLeft, setIsShowingSidebarLeft] = useState(false)
   const [isShowingSidebarRight, setIsShowingSidebarRight] = useState(false)
 
+  const [isFixiedSidebarLeft, setIsFixiedSidebarLeft] = useState(false)
+  const [isFixiedSidebarRight, setIsFixiedSidebarRight] = useState(false)
+
+  useEffect(() => {
+    if (!isShowingSidebarLeft) {
+      setIsFixiedSidebarLeft(false)
+    } else {
+      setTimeout(() => {
+        setIsFixiedSidebarLeft(true)
+      }, 100)
+    }
+  }, [isShowingSidebarLeft])
+
+  useEffect(() => {
+    if (!isShowingSidebarRight) {
+      setIsFixiedSidebarRight(false)
+    } else {
+      setTimeout(() => {
+        setIsFixiedSidebarRight(true)
+      }, 100)
+    }
+  }, [isShowingSidebarRight])
+
   return (
-    <>
+    <Box sx={{ width: '100%', height: '100%', minWidth: '', minHeight: '100%', maxWidth: '100%', maxHeight: 'auto' }}>
       <AppBar
         position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2, backgroundColor: 'common.white' }}
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, px: 2, backgroundColor: 'common.white', boxShadow: 2 }}
       >
         <Toolbar variant="dense" disableGutters={true}>
           <Box sx={{ flexGrow: 0, width: isDesktop ? `${cfxSideBarLeftWidth}px` : 'auto', maxHeight: '100%' }}>
@@ -83,7 +107,7 @@ function App() {
                     <IconButton
                       size="large"
                       color="primary"
-                       tabIndex={1014}
+                      tabIndex={1014}
                       onClick={() => {
                         setIsShowingSidebarRight(!isShowingSidebarRight)
                       }}
@@ -111,16 +135,32 @@ function App() {
           minHeight: 'calc(100% - 48px)',
           maxWidth: '100%',
           maxHeight: 'auto',
-          p: 2,
         }}
       >
-        <Outlet />
+        <Box
+          sx={{
+            with: '100%',
+            height: '100%',
+            minWidth: '100%',
+            minHeight: '100%',
+            maxWidth: '100%',
+            maxHeight: 'auto',
+            p: 2,
+          }}
+        >
+          <Outlet />
+        </Box>
       </Box>
       <Drawer
         anchor="left"
+        variant="temporary"
         open={isShowingSidebarLeft}
         onClose={() => {
           setIsShowingSidebarLeft(false)
+        }}
+        sx={{
+          '& > .MuiPaper-root': { boxShadow: 3, border: 0 },
+          '& > .MuiBackdrop-root': { opacity: '0.25 !important' },
         }}
       >
         <Toolbar variant="dense" disableGutters={true} />
@@ -130,15 +170,29 @@ function App() {
       </Drawer>
       <Drawer
         anchor="right"
+        // variant={isFixiedSidebarRight ? 'permanent' : 'persistent'}
+        variant="persistent"
         open={isShowingSidebarRight}
+        hideBackdrop={false}
+        transitionDuration={100}
         onClose={() => {
           setIsShowingSidebarRight(false)
         }}
+        sx={{
+          '& > .MuiPaper-root': { boxShadow: 3, border: 0 },
+          '& > .MuiBackdrop-root': { opacity: '0.25 !important' },
+        }}
       >
-        <Toolbar variant="dense" disableGutters={true} />
-        <Box sx={{ width: cfxSideBarRightWidth }}>isShowingSidebarRight</Box>
+        <Box sx={{ width: cfxSideBarRightWidth, height: '100%' }}>
+          <Box>
+            <Toolbar variant="dense" disableGutters={true} />
+          </Box>
+          <Box sx={{ width: '100%', height: 'calc(100% - 48px)' }}>
+            <AIChatBot />
+          </Box>
+        </Box>
       </Drawer>
-    </>
+    </Box>
   )
 }
 
