@@ -33,13 +33,13 @@ export default function AppLogo() {
       tabIndex={1000}
     >
       <Box sx={{ width: 28, height: 28 }}>
-        <Tooltip title="Amz One UI">
+        <Tooltip title="Amz One MFG">
           <Avatar variant="rounded" src={logo} sx={{ width: 28, height: 28, bgcolor: 'secondary.main' }} />
         </Tooltip>
       </Box>
       {isDesktop ? (
         <Box sx={{ pl: 2 }}>
-          <Tooltip title="Amz One UI">
+          <Tooltip title="Amz One MFG">
             <Typography
               variant="h2"
               color="secondary"
@@ -47,7 +47,7 @@ export default function AppLogo() {
                 fontWeight: 800,
               }}
             >
-              Amz One UI
+              Amz One MFG
             </Typography>
           </Tooltip>
         </Box>

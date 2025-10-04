@@ -8,6 +8,7 @@ import Toolbar from '@mui/material/Toolbar'
 import Stack from '@mui/material/Stack'
 import Drawer from '@mui/material/Drawer'
 import Badge from '@mui/material/Badge'
+import Link from '@mui/material/Link'
 import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
@@ -192,7 +193,17 @@ export default function App() {
             }}
           >
             <Box sx={{ p: 2 }}>
-              <Typography variant="subtitle2">© Mendix One 2025.</Typography>
+              <Typography variant="subtitle2">
+                <Link
+                  target="_blank"
+                  variant="subtitle2"
+                  href="https://www.mendix.one"
+                  color="inherit"
+                  underline="none"
+                >
+                  © Amz One MFG - 2025.
+                </Link>
+              </Typography>
             </Box>
           </Box>
         </Box>
