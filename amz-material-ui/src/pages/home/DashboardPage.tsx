@@ -1,29 +1,53 @@
-import Paper from '@mui/material/Paper'
+import { Fragment, useMemo, useState } from 'react'
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
 import Typography from '@mui/material/Typography'
 
+import naviation, { type NavItem } from '../../context/AppNavigation'
+import Grid from '@mui/material/Grid'
+import Divider from '@mui/material/Divider'
+import CardActionArea from '@mui/material/CardActionArea'
+import CardContent from '@mui/material/CardContent'
+
 export default function DashboardPage() {
+  const list = useMemo((): NavItem[] => {
+    return naviation?.filter((x) => !x.index) || ([] as NavItem[])
+  }, [])
+
+  const goto = (path: string) => {
+    console.log(`Goto: ${path}`)
+  }
+
   return (
-    <Paper sx={{boxShadow: 1, p: 2}}>
-      <Typography sx={{ marginBottom: 2 }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-        imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus. Convallis convallis tellus id interdum
-        velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-        adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate eu
-        scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt
-        lobortis feugiat vivamus at augue. At augue eget arcu dictum varius duis at consectetur lorem. Velit sed
-        ullamcorper morbi tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-      </Typography>
-      <Typography sx={{ marginBottom: 2 }}>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla facilisi etiam dignissim
-        diam. Pulvinar elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-        tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-        risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-        gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant morbi tristique
-        senectus et. Adipiscing elit duis tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-        eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices
-        sagittis orci a.
-      </Typography>
-    </Paper>
+    <>
+      {list.map((group, idx) => (
+        <Fragment key={idx}>
+          <Box sx={{ py: 1 }}>
+            <Typography variant="subtitle2">{group.title}</Typography>
+          </Box>
+          <Divider />
+          <Box sx={{ py: 3, mb: 5 }}>
+            <Grid container spacing={2}>
+              {group.items?.map((item, idj) => (
+                <Grid key={idj} size={3}>
+                  <Card>
+                    <CardActionArea onClick={() => goto(item.path)}>
+                      <CardContent sx={{ p: 2 }}>
+                        <Box sx={{ textAlign: 'center', mb: 2 }}>
+                          <item.icon color="primary.main" sx={{ fontSize: '3rem' }} />
+                        </Box>
+                        <Box sx={{ textAlign: 'center' }}>
+                          <Typography variant="subtitle2">{item.title}</Typography>
+                        </Box>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </Fragment>
+      ))}
+    </>
   )
 }
