@@ -1,4 +1,4 @@
-import { Fragment, useMemo } from 'react'
+import { Fragment, useContext, useMemo } from 'react'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import ListItemIcon from '@mui/material/ListItemIcon'
@@ -9,141 +9,32 @@ import Typography from '@mui/material/Typography'
 
 import { blueGrey } from '@mui/material/colors'
 
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined'
-
-import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
-
-
-const lists = [
-  {
-    icon: TableChartOutlinedIcon,
-    path: '/table',
-    title: 'Master Table',
-    items: [
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-1',
-        title: 'Master Table - Basic',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-2',
-        title: 'Master Table - Filter',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-3',
-        title: 'Master Table - Actions',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-4',
-        title: 'Master Table - Export',
-      },
-    ],
-  },
-  {
-    icon: TableChartOutlinedIcon,
-    path: '/table',
-    title: 'Master Table',
-    items: [
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-1',
-        title: 'Master Table - Basic',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-2',
-        title: 'Master Table - Filter',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-3',
-        title: 'Master Table - Actions',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-4',
-        title: 'Master Table - Export',
-      },
-    ],
-  },
-  {
-    icon: TableChartOutlinedIcon,
-    path: '/table',
-    title: 'Master Table',
-    items: [
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-1',
-        title: 'Master Table - Basic',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-2',
-        title: 'Master Table - Filter',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-3',
-        title: 'Master Table - Actions',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-4',
-        title: 'Master Table - Export',
-      },
-    ],
-  },
-  {
-    icon: TableChartOutlinedIcon,
-    path: '/table',
-    title: 'Master Table',
-    items: [
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-1',
-        title: 'Master Table - Basic',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-2',
-        title: 'Master Table - Filter',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-3',
-        title: 'Master Table - Actions',
-      },
-      {
-        icon: TableChartOutlinedIcon,
-        path: '/table/master-table-4',
-        title: 'Master Table - Export',
-      },
-    ],
-  },
-]
+import AppContext from '../context/AppContext'
+import type { NavItem } from '../context/AppNavigation'
 
 export default function AppLeftNav() {
-  const navigation = useMemo(() => {
-    return [...lists]
-  }, [])
+  const appContext = useContext(AppContext)
+
+  const dashboard = useMemo((): NavItem => {
+    return appContext.naviation?.find((x) => !!x.index) || ({} as NavItem)
+  }, [appContext.naviation])
+
+  const navigation = useMemo((): NavItem[] => {
+    return appContext.naviation?.filter((x) => !x.index) || ([] as NavItem[])
+  }, [appContext.naviation])
 
   return (
     <Box sx={{ py: 2, width: '100%', height: 'auto' }}>
       <MenuList>
         <MenuItem sx={{ px: 2, py: 2, [`& .MuiListItemIcon-root`]: { minWidth: '28px' } }}>
-          <ListItemIcon sx={{ minWidth: '28px' }}>
-            <DashboardOutlinedIcon fontSize="small" color="primary" />
-          </ListItemIcon>
+          <ListItemIcon sx={{ minWidth: '28px' }}>{dashboard.icon}</ListItemIcon>
           <ListItemText
             sx={{
               color: 'primary.main',
               [`& .MuiListItemText-primary`]: { color: 'primary.main' },
             }}
           >
-            Dashboard
+            {dashboard.title}
           </ListItemText>
         </MenuItem>
       </MenuList>
@@ -151,14 +42,12 @@ export default function AppLeftNav() {
         <Fragment key={idx}>
           <Divider />
           <Box sx={{ p: 2, backgroundColor: blueGrey[50] }}>
-            <Typography variant='subtitle2'>{group.title}</Typography>
+            <Typography variant="subtitle2">{group.title}</Typography>
           </Box>
           <MenuList>
-            {group.items.map((item, idj) => (
+            {group.items?.map((item, idj) => (
               <MenuItem key={idj} sx={{ px: 2, py: 2, [`& .MuiListItemIcon-root`]: { minWidth: '28px' } }}>
-                <ListItemIcon sx={{ minWidth: '28px' }}>
-                  <item.icon fontSize="small" color="primary" />
-                </ListItemIcon>
+                <ListItemIcon sx={{ minWidth: '28px' }}>{item.icon}</ListItemIcon>
                 <ListItemText
                   sx={{
                     color: 'primary.main',
