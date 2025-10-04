@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import Box from '@mui/material/Box'
@@ -6,10 +5,9 @@ import Paper from '@mui/material/Paper'
 import Link from '@mui/material/Link'
 import Alert from '@mui/material/Alert'
 import Stack from '@mui/material/Stack'
-import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
+import Avatar from '@mui/material/Avatar'
 import Divider from '@mui/material/Divider'
-import TextField from '@mui/material/TextField'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 
@@ -20,13 +18,9 @@ import bg from '../../../assets/wafer-bg.png'
 
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined'
 
-export default function LoginPage() {
+export default function AccessDeniedPage() {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
-
-  const [username, setUsername] = useState('MxAdmin')
-  const [password, setPassword] = useState('1')
-  const [hasErrors, setHasErrors] = useState(false)
 
   return (
     <Box sx={{ width: '100%', height: '100%', position: 'relative' }}>
@@ -135,59 +129,16 @@ export default function LoginPage() {
                 variant="h2"
                 sx={{
                   fontWeight: 600,
-                  color: 'primary.main',
+                  color: 'error.main',
                 }}
               >
-                Login
+                Access Denied
               </Typography>
             </Box>
-            <Box sx={{ mb: 3 }}>
-              {hasErrors ? (
-                <Alert
-                  severity="warning"
-                  onClose={() => {
-                    setHasErrors(false)
-                  }}
-                >
-                  Username or password is incorrect.
-                </Alert>
-              ) : (
-                // <Alert
-                //   severity="info"
-                //   onClose={() => {
-                //     setHasErrors(false)
-                //   }}
-                // >
-                //   Enter username and password to login.
-                // </Alert>
-                <></>
-              )}
-            </Box>
-            <Box sx={{ mb: 3 }}>
-              <Typography variant="caption">Username:</Typography>
-              <TextField
-                fullWidth
-                size="small"
-                placeholder="Username"
-                value={username}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  setUsername(event.target.value)
-                }}
-              />
-            </Box>
-            <Box sx={{ mb: 3 }}>
-              <Typography variant="caption">Password:</Typography>
-              <TextField
-                fullWidth
-                size="small"
-                placeholder="Password"
-                type="password"
-                autoComplete="current-password"
-                value={password}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  setPassword(event.target.value)
-                }}
-              />
+            <Box sx={{ mb: 10 }}>
+              <Alert variant="outlined" severity="error">
+                You do not have permission to view this resource!
+              </Alert>
             </Box>
             <Box sx={{ mb: 3 }}>
               <Stack
@@ -201,13 +152,13 @@ export default function LoginPage() {
                 <Stack sx={{ flexFlow: 1 }}>
                   <Typography variant="caption">
                     <Link color="inherit" underline="none">
-                      Forgot your password?
+                      Request for access permission
                     </Link>
                   </Typography>
                 </Stack>
                 <Stack sx={{ flexFlow: 0 }}>
-                  <Button variant="contained" endIcon={<LoginOutlinedIcon />} sx={{ boxShadow: 0 }}>
-                    Login
+                  <Button variant="outlined" endIcon={<LoginOutlinedIcon />} sx={{ boxShadow: 0 }}>
+                    Try Again
                   </Button>
                 </Stack>
               </Stack>

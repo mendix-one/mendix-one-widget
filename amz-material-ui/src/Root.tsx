@@ -9,6 +9,7 @@ import App from './layout/App'
 import DashboardPage from './pages/home/DashboardPage'
 import LoginPage from './pages/auth/login/LoginPage'
 import LogoutPage from './pages/auth/logout/LogoutPage'
+import AccessDeniedPage from './pages/auth/error/AccessDeniedPage'
 
 export default function Root() {
   const theme = useMemo((): Theme => {
@@ -24,6 +25,7 @@ export default function Root() {
           <Route element={<App />}>
             <Route index element={<DashboardPage />} />
           </Route>
+          <Route path="/access-denied" element={<AccessDeniedPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/logout" element={<LogoutPage />} />
         </Routes>
