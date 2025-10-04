@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
 
-export default function EditableTable() {
+export default function EditableTablePage() {
   return <Box>Editable Table</Box>
 }

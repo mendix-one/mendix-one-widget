@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import Avatar from '@mui/material/Avatar'
@@ -12,8 +13,10 @@ export default function AppLogo() {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 
+  const navigate = useNavigate()
+
   const onClick = () => {
-    console.log('on click logo')
+    navigate('/')
   }
 
   return (

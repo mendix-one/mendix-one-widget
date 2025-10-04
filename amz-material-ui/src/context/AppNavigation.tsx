@@ -19,27 +19,27 @@ export default [
   },
   {
     icon: TableChartOutlinedIcon,
-    path: '/table',
+    path: '/example',
     title: 'Master Table Examples',
     items: [
       {
         icon: TableChartOutlinedIcon,
-        path: '/table/master-table-1',
+        path: '/example/master-table-basic',
         title: 'Master Table - Basic',
       },
       {
         icon: TableChartOutlinedIcon,
-        path: '/table/master-table-2',
-        title: 'Master Table - Filter',
+        path: '/example/master-table-editable',
+        title: 'Master Table - Editable',
       },
       {
         icon: TableChartOutlinedIcon,
-        path: '/table/master-table-3',
+        path: '/example/master-table-actions',
         title: 'Master Table - Actions',
       },
       {
         icon: TableChartOutlinedIcon,
-        path: '/table/master-table-4',
+        path: '/example/master-table-export',
         title: 'Master Table - Export',
       },
     ],

@@ -1,4 +1,5 @@
-import { Fragment, useMemo, useState } from 'react'
+import { Fragment, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
 import Typography from '@mui/material/Typography'
@@ -10,12 +11,14 @@ import CardActionArea from '@mui/material/CardActionArea'
 import CardContent from '@mui/material/CardContent'
 
 export default function DashboardPage() {
+  const navigate = useNavigate()
+
   const list = useMemo((): NavItem[] => {
     return naviation?.filter((x) => !x.index) || ([] as NavItem[])
   }, [])
 
   const goto = (path: string) => {
-    console.log(`Goto: ${path}`)
+    navigate(path)
   }
 
   return (

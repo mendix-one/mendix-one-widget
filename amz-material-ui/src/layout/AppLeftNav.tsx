@@ -1,4 +1,5 @@
 import { Fragment, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import ListItemIcon from '@mui/material/ListItemIcon'
@@ -12,6 +13,8 @@ import { blueGrey } from '@mui/material/colors'
 import naviation, { type NavItem } from '../context/AppNavigation'
 
 export default function AppLeftNav() {
+  const navigate = useNavigate()
+
   const dashboard = useMemo((): NavItem => {
     return naviation?.find((x) => !!x.index) || ({} as NavItem)
   }, [])
@@ -20,10 +23,17 @@ export default function AppLeftNav() {
     return naviation?.filter((x) => !x.index) || ([] as NavItem[])
   }, [])
 
+  const goto = (path: string) => {
+    navigate(path)
+  }
+
   return (
     <Box sx={{ py: 2, width: '100%', height: 'auto' }}>
       <MenuList>
-        <MenuItem sx={{ px: 2, py: 2, [`& .MuiListItemIcon-root`]: { minWidth: '28px' } }}>
+        <MenuItem
+          sx={{ px: 2, py: 2, [`& .MuiListItemIcon-root`]: { minWidth: '28px' } }}
+          onClick={() => goto(dashboard.path)}
+        >
           <ListItemIcon sx={{ minWidth: '28px' }}>
             <dashboard.icon fontSize="small" color="primary" />
           </ListItemIcon>
@@ -45,7 +55,11 @@ export default function AppLeftNav() {
           </Box>
           <MenuList>
             {group.items?.map((item, idj) => (
-              <MenuItem key={idj} sx={{ px: 2, py: 2, [`& .MuiListItemIcon-root`]: { minWidth: '28px' } }}>
+              <MenuItem
+                key={idj}
+                sx={{ px: 2, py: 2, [`& .MuiListItemIcon-root`]: { minWidth: '28px' } }}
+                onClick={() => goto(item.path)}
+              >
                 <ListItemIcon sx={{ minWidth: '28px' }}>
                   <item.icon fontSize="small" color="primary" />
                 </ListItemIcon>
