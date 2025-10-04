@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 
 import MyThem from './theme'
+import AppContextProvider from './context/AppContextProvider'
 
 import App from './layout/App'
 import DashboardPage from './pages/home/DashboardPage'
@@ -20,16 +21,18 @@ export default function Root() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<App />}>
-            <Route index element={<DashboardPage />} />
-          </Route>
-          <Route path="/access-denied" element={<AccessDeniedPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/logout" element={<LogoutPage />} />
-        </Routes>
-      </BrowserRouter>
+      <AppContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<App />}>
+              <Route index element={<DashboardPage />} />
+            </Route>
+            <Route path="/access-denied" element={<AccessDeniedPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/logout" element={<LogoutPage />} />
+          </Routes>
+        </BrowserRouter>
+      </AppContextProvider>
     </ThemeProvider>
   )
 }

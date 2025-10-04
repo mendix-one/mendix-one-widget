@@ -69,11 +69,11 @@ export default function AppUserMenu() {
           }}
         >
           <Stack>
-            <Avatar alt="Remy Sharp" sx={{ width: 44, height: 44, bgcolor: 'secondary.main' }} />
+            <Avatar alt="Remy Sharp" sx={{ width: 44, height: 44, bgcolor: 'primary.main' }} />
           </Stack>
           <Stack>
             <Stack>
-              <Typography variant='subtitle1' color='secondary'>Amz Admin</Typography>
+              <Typography variant='subtitle1' color='primary'>Amz Admin</Typography>
             </Stack>
             <Stack>
               <Typography variant='subtitle2'>Administrator</Typography>
