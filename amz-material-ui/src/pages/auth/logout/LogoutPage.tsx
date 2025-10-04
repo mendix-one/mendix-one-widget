@@ -129,7 +129,7 @@ export default function LogoutPage() {
                 variant="h2"
                 sx={{
                   fontWeight: 600,
-                  color: 'primary.main',
+                  color: 'success.main',
                 }}
               >
                 Logout

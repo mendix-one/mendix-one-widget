@@ -16,7 +16,7 @@ import { blueGrey } from '@mui/material/colors'
 import logo from '../../../assets/icon.png'
 import bg from '../../../assets/wafer-bg.png'
 
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined'
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
 
 export default function AccessDeniedPage() {
   const theme = useTheme()
@@ -132,10 +132,34 @@ export default function AccessDeniedPage() {
                   color: 'error.main',
                 }}
               >
-                Access Denied
+                Access Denied!
               </Typography>
             </Box>
-            <Box sx={{ mb: 10 }}>
+            <Box sx={{ mb: 3 }}>
+              <Stack
+                direction="row"
+                spacing={2}
+                sx={{
+                  justifyContent: 'start',
+                  alignItems: 'center',
+                }}
+              >
+                <Stack>
+                  <Avatar alt="Remy Sharp" sx={{ width: 44, height: 44, bgcolor: 'secondary.main' }} />
+                </Stack>
+                <Stack>
+                  <Stack>
+                    <Typography variant="subtitle1" color="secondary">
+                      Amz Admin
+                    </Typography>
+                  </Stack>
+                  <Stack>
+                    <Typography variant="subtitle2">Administrator</Typography>
+                  </Stack>
+                </Stack>
+              </Stack>
+            </Box>
+            <Box sx={{ mb: 5 }}>
               <Alert variant="outlined" severity="error">
                 You do not have permission to view this resource!
               </Alert>
@@ -157,8 +181,8 @@ export default function AccessDeniedPage() {
                   </Typography>
                 </Stack>
                 <Stack sx={{ flexFlow: 0 }}>
-                  <Button variant="outlined" endIcon={<LoginOutlinedIcon />} sx={{ boxShadow: 0 }}>
-                    Try Again
+                  <Button variant="outlined" startIcon={<LogoutOutlinedIcon />} sx={{ boxShadow: 0 }}>
+                    Logout
                   </Button>
                 </Stack>
               </Stack>

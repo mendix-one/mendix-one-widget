@@ -206,7 +206,7 @@ export default function LoginPage() {
                   </Typography>
                 </Stack>
                 <Stack sx={{ flexFlow: 0 }}>
-                  <Button variant="contained" endIcon={<LoginOutlinedIcon />} sx={{ boxShadow: 0 }}>
+                  <Button variant="outlined" endIcon={<LoginOutlinedIcon />} sx={{ boxShadow: 0 }}>
                     Login
                   </Button>
                 </Stack>
