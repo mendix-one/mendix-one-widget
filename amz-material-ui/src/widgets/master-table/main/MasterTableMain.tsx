@@ -3,6 +3,7 @@ import {
   MaterialReactTable,
   useMaterialReactTable,
   type MRT_ColumnDef,
+  type MRT_RowData,
   type MRT_TableOptions,
 } from 'material-react-table'
 import MasterTableContextProvider from './context/MasterTableProvider'
@@ -23,33 +24,45 @@ export type MasterTableMainProps = {
   onBuilkAction: MasterTablePropBuilkAction
 }
 
-export default function MasterTableMain() {
+export default function MasterTableMain(props: MasterTableMainProps) {
+  const data = useMemo<MasterTableData[]>(() => {
+    return props.items as MasterTableData[]
+  }, [props.items])
+
   const columns = useMemo<MRT_ColumnDef<MasterTableData>[]>(
     () => [
       {
-        accessorKey: 'name.firstName', //access nested data with dot notation
-        header: 'First Name',
-        size: 150,
+        accessorKey: 'id',
+        header: 'ID',
       },
       {
-        accessorKey: 'name.lastName',
-        header: 'Last Name',
-        size: 150,
+        accessorKey: 'name',
+        header: 'Name',
       },
       {
-        accessorKey: 'address', //normal accessorKey
-        header: 'Address',
-        size: 200,
+        accessorKey: 'category',
+        header: 'Category',
       },
       {
-        accessorKey: 'city',
-        header: 'City',
-        size: 150,
+        accessorKey: 'type',
+        header: 'Type',
       },
       {
-        accessorKey: 'state',
-        header: 'State',
-        size: 150,
+        accessorKey: 'brand',
+        header: 'Brand',
+      },
+      {
+        accessorKey: 'price',
+        header: 'Unit Price',
+      },
+      {
+        accessorKey: 'stockQuantity',
+        header: 'Sotck Quantity',
+      },
+      {
+        accessorKey: 'importedDate',
+        header: 'Imported Date',
+        Cell: ({ cell }) => cell.getValue<Date>()?.toLocaleDateString(),
       },
     ],
     [],
@@ -62,7 +75,7 @@ export default function MasterTableMain() {
   const table = useMaterialReactTable({
     ...options,
     columns,
-    data: [],
+    data,
   })
 
   return (
