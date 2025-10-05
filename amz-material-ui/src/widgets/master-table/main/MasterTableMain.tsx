@@ -3,7 +3,6 @@ import {
   MaterialReactTable,
   useMaterialReactTable,
   type MRT_ColumnDef,
-  type MRT_RowData,
   type MRT_TableOptions,
 } from 'material-react-table'
 import MasterTableContextProvider from './context/MasterTableProvider'
@@ -15,6 +14,8 @@ import type {
   MasterTablePropItem,
   MasterTablePropOptions,
 } from './MasterTableTypings'
+
+import MasterTableComposer from './helper/MasterTableComposer'
 
 export type MasterTableMainProps = {
   items: MasterTablePropItem[]
@@ -54,10 +55,24 @@ export default function MasterTableMain(props: MasterTableMainProps) {
       {
         accessorKey: 'price',
         header: 'Unit Price',
+        Cell: ({ cell }) =>
+          cell.getValue<number>()?.toLocaleString?.('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          }),
       },
       {
         accessorKey: 'stockQuantity',
         header: 'Sotck Quantity',
+        Cell: ({ cell }) =>
+          cell.getValue<number>()?.toLocaleString?.('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          }),
       },
       {
         accessorKey: 'importedDate',
@@ -69,7 +84,7 @@ export default function MasterTableMain(props: MasterTableMainProps) {
   )
 
   const options = useMemo<MRT_TableOptions<MasterTableData>>(() => {
-    return {} as MRT_TableOptions<MasterTableData>
+    return MasterTableComposer.init() as MRT_TableOptions<MasterTableData>
   }, [])
 
   const table = useMaterialReactTable({
