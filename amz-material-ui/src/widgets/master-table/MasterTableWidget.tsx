@@ -1,5 +1,5 @@
-import Box from '@mui/material/Box'
+import MasterTableMain from './main/MasterTableMain'
 
 export default function MasterTableWidget() {
-  return <Box>MasterTableWidget</Box>
+  return <MasterTableMain />
 }
