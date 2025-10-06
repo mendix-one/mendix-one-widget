@@ -50,6 +50,10 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
   const muiTablePaperProps = {
     elevation: 1,
     sx: {
+      width: '100%',
+      height: '100%',
+      maxWidth: '100%',
+      maxHeight: '100%',
       fontWeight: 400,
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
@@ -58,10 +62,17 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
   } as PaperProps
   const muiTableContainerProps = {
     sx: {
+      width: '100%',
+      height: 'calc(100% - 56px - 56px)',
+      maxWidth: '100%',
+      maxHeight: 'calc(100% - 56px - 56px)',
       fontWeight: 400,
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
+      borderTop: 1,
+      borderBottom: 1,
+      borderColor: alpha(grey[400], 0.5),
     },
   } as TableContainerProps
   const muiTableProps = {
@@ -75,6 +86,8 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
 
   const muiTopToolbarProps = {
     sx: {
+      width: '100%',
+      height: '56px',
       fontWeight: 400,
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
@@ -83,6 +96,8 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
   } as BoxProps
   const muiBottomToolbarProps = {
     sx: {
+      width: '100%',
+      height: '56px',
       fontWeight: 400,
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
