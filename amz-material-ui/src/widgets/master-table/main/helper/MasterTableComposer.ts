@@ -1,4 +1,11 @@
-import type { MRT_ColumnDef, MRT_DisplayColumnDef, MRT_TableOptions, MRT_TableState } from 'material-react-table'
+import type {
+  MRT_ColumnDef,
+  MRT_DisplayColumnDef,
+  MRT_Row,
+  MRT_TableOptions,
+  MRT_TableState,
+  MRT_Theme,
+} from 'material-react-table'
 import type { MasterTableData } from '../MasterTableTypings'
 import type { PaginationProps } from '@mui/material/Pagination'
 import type { TableCellProps } from '@mui/material/TableCell'
@@ -17,7 +24,9 @@ import type { SliderProps } from '@mui/material/Slider'
 import type { TextFieldProps } from '@mui/material/TextField'
 import type { TimePickerProps } from '@mui/x-date-pickers/TimePicker'
 
-import { blueGrey, common } from '@mui/material/colors'
+import { alpha } from '@mui/material'
+import { lime, brown, amber, grey, blueGrey, common } from '@mui/material/colors'
+// import type { Theme } from '@mui/material/styles'
 
 /**
  * Init table option
@@ -25,10 +34,22 @@ import { blueGrey, common } from '@mui/material/colors'
  * @returns MRT_TableOptions<MasterTableData>
  */
 export const init = (): MRT_TableOptions<MasterTableData> => {
+  // const mrtTheme = (theme: Theme): Partial<MRT_Theme> => {
+  const mrtTheme = (): Partial<MRT_Theme> => {
+    return {
+      baseBackgroundColor: common.white,
+      // cellNavigationOutlineColor: '',
+      draggingBorderColor: alpha(grey[300], 0.35),
+      // matchHighlightColor: '',
+      // menuBackgroundColor: '',
+      pinnedRowBackgroundColor: brown[50],
+      selectedRowBackgroundColor: amber[50],
+    } as Partial<MRT_Theme>
+  }
+
   const muiTablePaperProps = {
+    elevation: 1,
     sx: {
-      backgroundColor: common.white,
-      boxShadow: 1,
       fontWeight: 400,
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
@@ -54,7 +75,6 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
 
   const muiTopToolbarProps = {
     sx: {
-      backgroundColor: common.white,
       fontWeight: 400,
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
@@ -63,11 +83,11 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
   } as BoxProps
   const muiBottomToolbarProps = {
     sx: {
-      backgroundColor: common.white,
       fontWeight: 400,
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
+      boxShadow: 0,
     },
   } as BoxProps
   const muiToolbarAlertBannerProps = {
@@ -81,14 +101,12 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
   } as AlertProps
 
   const muiTableHeadProps = {
-    sx: {
-      backgroundColor: common.white,
-    },
+    sx: {},
   } as TableHeadProps
   const muiTableHeadRowProps = {
     sx: {
-      backgroundColor: blueGrey[100],
       boxShadow: 0,
+      backgroundColor: blueGrey[100],
     },
   } as TableRowProps
   const muiTableHeadCellProps = {
@@ -97,25 +115,89 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
+      boxShadow: 0,
+      '&[data-pinned="true"]:before': {
+        boxShadow: 0,
+        backgroundColor: blueGrey[100],
+      },
     },
   } as TableCellProps
 
-  const muiTableBodyProps = {
-    sx: {
+  const muiTableBodyProps = {} as TableBodyProps
+  const muiTableBodyRowProps = ({ isDetailPanel, row }: { isDetailPanel: boolean; row: MRT_Row<MasterTableData> }) => {
+    const sx = {
       backgroundColor: common.white,
-    },
-  } as TableBodyProps
-  const muiTableBodyRowProps = {
-    sx: {
-      backgroundColor: common.white,
-    },
-  } as TableRowProps
+      '&:nth-of-type(odd):not([data-pinned="true"]):not([data-selected="true"])': {
+        backgroundColor: common.white,
+      },
+      '&:nth-of-type(even):not([data-pinned="true"]):not([data-selected="true"])': {
+        backgroundColor: grey[50],
+      },
+      '&:not([data-pinned="true"]):not([data-selected="true"]):hover': {
+        backgroundColor: grey[100],
+      },
+      '&:[data-pinned="true"]:not([data-selected="true"])': {
+        backgroundColor: brown[50],
+      },
+      '&:[data-pinned="true"]:not([data-selected="true"]):hover': {
+        backgroundColor: brown[100],
+      },
+      '&:not([data-pinned="true"]):[data-selected="true"]': {
+        backgroundColor: amber[50],
+      },
+      '&:not([data-pinned="true"]):[data-selected="true"]:hover': {
+        backgroundColor: amber[100],
+      },
+      '&:[data-pinned="true"]:[data-selected="true"]': {
+        backgroundColor: amber[50],
+      },
+      '&:[data-pinned="true"]:[data-selected="true"]:hover': {
+        backgroundColor: amber[100],
+      },
+      '&.Mui-selected': {
+        backgroundColor: amber[50],
+      },
+      '&.Mui-selected:hover': {
+        backgroundColor: amber[100],
+      },
+      '& > td:before': {
+        backgroundColor: alpha(common.white, 0.000000001),
+      },
+      '& > td:after': {
+        backgroundColor: alpha(common.white, 0.000000001),
+      },
+      '& > td[data-pinned="true"]:before': {
+        backgroundColor: alpha(lime[100], 0.25),
+      },
+    }
+
+    if (isDetailPanel) {
+      return {
+        sx: {
+          ...sx,
+        },
+      } as TableRowProps
+    }
+
+    return {
+      sx: {
+        ...sx,
+      },
+    } as TableRowProps
+  }
   const muiTableBodyCellProps = {
     sx: {
       fontWeight: 400,
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
+      backgroundColor: alpha(common.white, 0.000000001),
+      '&[data-pinned="true"]': {
+        backgroundColor: alpha(blueGrey[100], 0.25),
+      },
+      '&[data-pinned="true"]:before': {
+        backgroundColor: alpha(blueGrey[100], 0.25),
+      },
     },
   } as TableCellProps
 
@@ -172,6 +254,7 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
     enableColumnFilters: true,
     enableColumnFilterModes: true,
     enableFilterMatchHighlighting: true,
+    columnFilterDisplayMode: 'popover',
 
     enableRowSelection: true,
     enableMultiRowSelection: true,
@@ -227,9 +310,9 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
       enableHiding: false,
       enableResizing: false,
       enableSorting: false,
-      grow: false,
-      size: 60,
-      minSize: 60,
+      grow: true,
+      size: 50,
+      minSize: 40,
     },
     'mrt-row-actions': {
       columnDefType: 'display',
@@ -244,8 +327,7 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
       enableHiding: false,
       enableResizing: false,
       enableSorting: false,
-      grow: false,
-      size: 60,
+      grow: true,
       minSize: 60,
     },
   } as Partial<MRT_DisplayColumnDef<MasterTableData>>
@@ -266,6 +348,8 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
 
   return {
     ...primaryOptions,
+    mrtTheme,
+
     defaultColumn,
     defaultDisplayColumn,
     displayColumnDefOptions,
