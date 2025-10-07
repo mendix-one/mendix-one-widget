@@ -1,8 +1,6 @@
 import type {
   MRT_ColumnDef,
-  MRT_DensityState,
   MRT_DisplayColumnDef,
-  MRT_Row,
   MRT_TableOptions,
   MRT_TableState,
   MRT_Theme,
@@ -139,6 +137,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
       boxShadow: 0,
+      '& > div': { minHeight: 28 },
       '&[data-pinned="true"]:before': {
         boxShadow: 0,
         backgroundColor: blueGrey[100],
@@ -236,7 +235,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
     layoutMode: 'grid',
 
     enableGlobalFilter: true,
-    enableDensityToggle: true,
+    enableDensityToggle: false,
     enableFullScreenToggle: true,
 
     enableTopToolbar: true,
@@ -284,7 +283,11 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
     positionToolbarDropZone: 'none',
   } as unknown as Partial<MRT_TableOptions<MasterTableData>>
 
-  const defaultColumn = {} as Partial<MRT_ColumnDef<MasterTableData>>
+  const defaultColumn = {
+    minSize: 80,
+    maxSize: 1000,
+    size: 180,
+  } as Partial<MRT_ColumnDef<MasterTableData>>
 
   const defaultDisplayColumn = {
     enableColumnActions: true,
@@ -303,7 +306,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
     sortDescFirst: false,
     grow: true,
     minSize: 80,
-    maxSize: 100,
+    maxSize: 1000,
   } as Partial<MRT_ColumnDef<MasterTableData>>
 
   const displayColumnDefOptions = {
@@ -320,8 +323,9 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       enableHiding: false,
       enableResizing: false,
       enableSorting: false,
-      grow: true,
-      minSize: 40,
+      minSize: 42,
+      grow: false,
+      size: 44, // 14 * 1 + 28 | 14 * 1.5 + 40
     },
     'mrt-row-actions': {
       columnDefType: 'display',
@@ -336,8 +340,9 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       enableHiding: false,
       enableResizing: false,
       enableSorting: false,
-      grow: true,
-      minSize: 60,
+      minSize: 44,
+      grow: false,
+      size: 80, // 14 * 1 + 30 * 2 | 14 * 1.5 + 40 * 2
     },
   } as Partial<MRT_DisplayColumnDef<MasterTableData>>
 
@@ -354,12 +359,6 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       pageSize: 10, //customize the default page size
     },
   } as Partial<MRT_TableState<MasterTableData>>
-
-  const onDensityChange = (updaterOrValue: MRT_DensityState | ((old: MRT_DensityState) => MRT_DensityState)) => {
-    console.log(updaterOrValue)
-    console.log(typeof updaterOrValue)
-    console.log(updaterOrValue === 'spacious' ? 'comfortable' : updaterOrValue)
-  }
 
   return {
     ...primaryOptions,
@@ -403,7 +402,6 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
     renderRowActions: MasterTableRender.renderRowActions(context),
 
     initialState,
-    // onDensityChange,
   } as MRT_TableOptions<MasterTableData>
 }
 

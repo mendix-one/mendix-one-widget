@@ -22,6 +22,7 @@ const ToolbarInternalActions =
   (context: MasterTableContextData): (({ table }: { table: MRT_TableInstance<MasterTableData> }) => ReactNode) =>
   ({ table }: { table: MRT_TableInstance<MasterTableData> }) => {
     const { density } = table.getState()
+    const enableDensityToggle = table.options.enableDensityToggle
     const isFilterDisplayModePopover = table.options.columnFilterDisplayMode === 'popover'
 
     const onChangeDensity = (density: MRT_DensityState) => {
@@ -47,31 +48,35 @@ const ToolbarInternalActions =
           </Tooltip>
         </Box>
         <MRT_ShowHideColumnsButton table={table} />
-        <Box>
-          {density === 'compact' ? (
-            <Tooltip title="Comfortable View">
-              <IconButton
-                onClick={() => {
-                  onChangeDensity('comfortable')
-                }}
-                tabIndex={101}
-              >
-                <DensityMediumOutlinedIcon />
-              </IconButton>
-            </Tooltip>
-          ) : (
-            <Tooltip title="Compact View">
-              <IconButton
-                onClick={() => {
-                  onChangeDensity('compact')
-                }}
-                tabIndex={101}
-              >
-                <DensitySmallOutlinedIcon />
-              </IconButton>
-            </Tooltip>
-          )}
-        </Box>
+        {enableDensityToggle ? (
+          <Box>
+            {density === 'compact' ? (
+              <Tooltip title="Comfortable View">
+                <IconButton
+                  onClick={() => {
+                    onChangeDensity('comfortable')
+                  }}
+                  tabIndex={101}
+                >
+                  <DensityMediumOutlinedIcon />
+                </IconButton>
+              </Tooltip>
+            ) : (
+              <Tooltip title="Compact View">
+                <IconButton
+                  onClick={() => {
+                    onChangeDensity('compact')
+                  }}
+                  tabIndex={101}
+                >
+                  <DensitySmallOutlinedIcon />
+                </IconButton>
+              </Tooltip>
+            )}
+          </Box>
+        ) : (
+          <></>
+        )}
         <MRT_ToggleFullScreenButton table={table} />
       </>
     )
