@@ -3,9 +3,10 @@ import type { MRT_Cell, MRT_Column, MRT_ColumnDef, MRT_Header, MRT_Row, MRT_Tabl
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Tooltip from '@mui/material/Tooltip'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
 import type { MasterTableColumnMeta, MasterTableData } from '../MasterTableTypings'
 import type { MasterTableContextData } from '../context/MasterTableContext'
-import IconButton from '@mui/material/IconButton'
 
 import { grey } from '@mui/material/colors'
 
@@ -109,9 +110,11 @@ const MasterTableCell = ({ cell, column, table }: MasterTableCellProps) => {
       {meta.display === 'Currency' ? <Stack sx={{ flexGrow: 0, width: 30 }}>$</Stack> : <></>}
       {meta.display !== 'Currency' && meta.icon ? (
         <Stack sx={{ flexGrow: 0, width: 30, color: grey[400] }}>
-          <IconButton size="small" sx={{ color: grey[400], '&:hover': { color: grey[700] } }}>
-            {meta.icon}
-          </IconButton>
+          <Tooltip title={display} placement="top-start">
+            <Typography variant="caption" sx={{ color: grey[400], '&:hover': { color: grey[700] } }}>
+              {meta.icon}
+            </Typography>
+          </Tooltip>
         </Stack>
       ) : (
         <></>
