@@ -217,6 +217,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
     shape: 'rounded',
     showRowsPerPage: true,
     variant: 'outlined',
+    size: 'small',
   } as Partial<PaginationProps>
 
   // const muiFilterAutocompleteProps = {} as AutocompleteProps
