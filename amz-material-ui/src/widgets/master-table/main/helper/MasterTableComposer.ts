@@ -28,12 +28,17 @@ import { alpha } from '@mui/material'
 import { lime, brown, amber, grey, blueGrey, common } from '@mui/material/colors'
 // import type { Theme } from '@mui/material/styles'
 
+import type { MasterTableContextData } from '../context/MasterTableContext'
+import MasterTableRender from '../render'
+import icons from './MasterTableIcons'
+
 /**
- * Init table option
+ *  Init table option
  *
+ * @param context
  * @returns MRT_TableOptions<MasterTableData>
  */
-export const init = (): MRT_TableOptions<MasterTableData> => {
+export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTableData> => {
   // const mrtTheme = (theme: Theme): Partial<MRT_Theme> => {
   const mrtTheme = (): Partial<MRT_Theme> => {
     return {
@@ -92,6 +97,7 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
       fontSize: '0.875rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
+      '& > div': { width: '100%', height: '56px', alignItems: 'center' },
     },
   } as BoxProps
   const muiBottomToolbarProps = {
@@ -103,6 +109,7 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
       boxShadow: 0,
+      '& > div': { width: '100%', height: '56px', alignItems: 'center' },
     },
   } as BoxProps
   const muiToolbarAlertBannerProps = {
@@ -139,8 +146,8 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
   } as TableCellProps
 
   const muiTableBodyProps = {} as TableBodyProps
-  const muiTableBodyRowProps = ({ isDetailPanel, row }: { isDetailPanel: boolean; row: MRT_Row<MasterTableData> }) => {
-    const sx = {
+  const muiTableBodyRowProps = {
+    sx: {
       backgroundColor: common.white,
       '&:nth-of-type(odd):not([data-pinned="true"]):not([data-selected="true"])': {
         backgroundColor: common.white,
@@ -184,22 +191,8 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
       '& > td[data-pinned="true"]:before': {
         backgroundColor: alpha(lime[100], 0.25),
       },
-    }
-
-    if (isDetailPanel) {
-      return {
-        sx: {
-          ...sx,
-        },
-      } as TableRowProps
-    }
-
-    return {
-      sx: {
-        ...sx,
-      },
-    } as TableRowProps
-  }
+    },
+  } as TableRowProps
   const muiTableBodyCellProps = {
     sx: {
       fontWeight: 400,
@@ -357,13 +350,14 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
     },
     pagination: {
       pageIndex: 0,
-      pageSize: 5, //customize the default page size
+      pageSize: 10, //customize the default page size
     },
   } as Partial<MRT_TableState<MasterTableData>>
 
   return {
     ...primaryOptions,
     mrtTheme,
+    icons,
 
     defaultColumn,
     defaultDisplayColumn,
@@ -395,6 +389,9 @@ export const init = (): MRT_TableOptions<MasterTableData> => {
 
     muiSelectCheckboxProps,
     muiSelectAllCheckboxProps,
+
+    renderTopToolbarCustomActions: MasterTableRender.renderTopToolbarCustomActions(context),
+    renderBottomToolbarCustomActions: MasterTableRender.renderBottomToolbarCustomActions(context),
 
     initialState,
   } as MRT_TableOptions<MasterTableData>

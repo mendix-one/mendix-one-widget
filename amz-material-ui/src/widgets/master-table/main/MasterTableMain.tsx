@@ -16,6 +16,7 @@ import type {
 } from './MasterTableTypings'
 
 import MasterTableComposer from './helper/MasterTableComposer'
+import type { MasterTableContextData } from './context/MasterTableContext'
 
 export type MasterTableMainProps = {
   items: MasterTablePropItem[]
@@ -26,6 +27,40 @@ export type MasterTableMainProps = {
 }
 
 export default function MasterTableMain(props: MasterTableMainProps) {
+  const onReload = () => {
+    console.log(`onReload`)
+  }
+
+  const onCreateNew = () => {
+    console.log(`onCreateNew`)
+  }
+
+  const onItemAction = (action: string, item: MasterTableData) => {
+    console.log(`onItemAction: ${action} - ${item}`)
+  }
+
+  const onBulkAction = (action: string, selection: MasterTableData[]) => {
+    console.log(`onBulkAction: ${action} - ${selection}`)
+  }
+
+  const onExportData = (action: string, selection: MasterTableData[]) => {
+    console.log(`onExportData: ${action} - ${selection}`)
+  }
+
+  const onPrintOutTable = (action: string, selection: MasterTableData[]) => {
+    console.log(`onPrintOutTable: ${action} - ${selection}`)
+  }
+
+  const context = {
+    title: "Sample Master Table",
+    onReload,
+    onCreateNew,
+    onItemAction,
+    onBulkAction,
+    onExportData,
+    onPrintOutTable,
+  } as MasterTableContextData
+
   const data = useMemo<MasterTableData[]>(() => {
     return props.items as MasterTableData[]
   }, [props.items])
@@ -84,7 +119,7 @@ export default function MasterTableMain(props: MasterTableMainProps) {
   )
 
   const options = useMemo<MRT_TableOptions<MasterTableData>>(() => {
-    return MasterTableComposer.init() as MRT_TableOptions<MasterTableData>
+    return MasterTableComposer.init(context) as MRT_TableOptions<MasterTableData>
   }, [])
 
   const table = useMaterialReactTable({
@@ -94,7 +129,15 @@ export default function MasterTableMain(props: MasterTableMainProps) {
   })
 
   return (
-    <MasterTableContextProvider>
+    <MasterTableContextProvider
+      title="Sample Master Table"
+      onReload={onReload}
+      onCreateNew={onCreateNew}
+      onItemAction={onItemAction}
+      onBulkAction={onBulkAction}
+      onExportData={onExportData}
+      onPrintOutTable={onPrintOutTable}
+    >
       <MaterialReactTable table={table} />
     </MasterTableContextProvider>
   )
