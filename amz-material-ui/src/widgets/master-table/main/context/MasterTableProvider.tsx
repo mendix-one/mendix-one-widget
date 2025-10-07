@@ -6,21 +6,11 @@ import type { MasterTableContextData } from './MasterTableContext'
 import MasterTableContext from './MasterTableContext'
 
 export default function MasterTableContextProvider({
-  title,
-  onReload,
-  onCreateNew,
-  onItemAction,
-  onBulkAction,
-  onExportData,
-  onPrintOutTable,
+  value,
   children,
-}: PropsWithChildren<MasterTableContextData>) {
+}: PropsWithChildren<{ value: MasterTableContextData }>) {
   return (
-    <MasterTableContext.Provider
-      value={
-        { title, onReload, onCreateNew, onItemAction, onBulkAction, onExportData, onPrintOutTable } as MasterTableContextData
-      }
-    >
+    <MasterTableContext.Provider value={value}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>{children}</LocalizationProvider>
     </MasterTableContext.Provider>
   )
