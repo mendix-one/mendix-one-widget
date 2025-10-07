@@ -20,7 +20,10 @@ import PrintOutlinedIcon from '@mui/icons-material/PrintOutlined'
 
 const RowActions =
   (context: MasterTableContextData): ((props: { table: MRT_TableInstance<MasterTableData> }) => ReactNode) =>
-  () => {
+  ({ table }: { table: MRT_TableInstance<MasterTableData> }) => {
+    const { density } = table.getState()
+    const size = density === 'compact' ? 'small' : 'medium'
+
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const refAnchorRowActions = useRef<HTMLElement | undefined>()
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -41,24 +44,24 @@ const RowActions =
           <Stack>
             <Tooltip title="Edit">
               <IconButton
-                size="small"
+                size={size}
                 onClick={() => {
                   setShowMenuRowActions(true)
                 }}
               >
-                <ModeEditOutlinedIcon fontSize="small" />
+                <ModeEditOutlinedIcon fontSize={size} />
               </IconButton>
             </Tooltip>
           </Stack>
           <Stack>
             <Box ref={refAnchorRowActions}>
               <IconButton
-                size="small"
+                size={size}
                 onClick={() => {
                   setShowMenuRowActions(true)
                 }}
               >
-                <MoreVertOutlinedIcon fontSize="small" />
+                <MoreVertOutlinedIcon fontSize={size} />
               </IconButton>
             </Box>
             <Menu

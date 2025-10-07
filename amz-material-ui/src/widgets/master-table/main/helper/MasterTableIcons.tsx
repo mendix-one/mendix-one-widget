@@ -13,11 +13,14 @@ import BlurOnOutlinedIcon from '@mui/icons-material/BlurOnOutlined'
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined'
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined'
 
+// import Grid4x4OutlinedIcon from '@mui/icons-material/Grid4x4Outlined'
 // import OpenInFullOutlinedIcon from '@mui/icons-material/OpenInFullOutlined'
 // import CloseFullscreenOutlinedIcon from '@mui/icons-material/CloseFullscreenOutlined'
+import ZoomOutMapOutlinedIcon from '@mui/icons-material/ZoomOutMapOutlined'
+import ZoomInMapOutlinedIcon from '@mui/icons-material/ZoomInMapOutlined'
 
-import FullscreenOutlinedIcon from '@mui/icons-material/FullscreenOutlined'
-import FullscreenExitOutlinedIcon from '@mui/icons-material/FullscreenExitOutlined'
+// import FullscreenOutlinedIcon from '@mui/icons-material/FullscreenOutlined'
+// import FullscreenExitOutlinedIcon from '@mui/icons-material/FullscreenExitOutlined'
 
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
 import SearchOffOutlinedIcon from '@mui/icons-material/SearchOffOutlined'
@@ -30,11 +33,12 @@ export default {
   DensityMediumIcon: () => <TableRowsOutlinedIcon />,
   DensitySmallIcon: () => <ReorderOutlinedIcon />,
   DragHandleIcon: () => <BlurOnOutlinedIcon />,
+  // DragHandleIcon: () => <Grid4x4OutlinedIcon />,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   FilterListIcon: (props: any) => <FilterAltOutlinedIcon {...props} />,
   FilterListOffIcon: () => <FilterAltOffOutlinedIcon />,
-  FullscreenExitIcon: () => <FullscreenExitOutlinedIcon />,
-  FullscreenIcon: () => <FullscreenOutlinedIcon />,
+  FullscreenExitIcon: () => <ZoomInMapOutlinedIcon />,
+  FullscreenIcon: () => <ZoomOutMapOutlinedIcon />,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   SearchIcon: (props: any) => <SearchOutlinedIcon {...props} />,
   SearchOffIcon: () => <SearchOffOutlinedIcon />,

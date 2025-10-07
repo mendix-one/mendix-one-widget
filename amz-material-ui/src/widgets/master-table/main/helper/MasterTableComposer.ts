@@ -1,5 +1,6 @@
 import type {
   MRT_ColumnDef,
+  MRT_DensityState,
   MRT_DisplayColumnDef,
   MRT_Row,
   MRT_TableOptions,
@@ -320,7 +321,6 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       enableResizing: false,
       enableSorting: false,
       grow: true,
-      size: 50,
       minSize: 40,
     },
     'mrt-row-actions': {
@@ -354,6 +354,12 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       pageSize: 10, //customize the default page size
     },
   } as Partial<MRT_TableState<MasterTableData>>
+
+  const onDensityChange = (updaterOrValue: MRT_DensityState | ((old: MRT_DensityState) => MRT_DensityState)) => {
+    console.log(updaterOrValue)
+    console.log(typeof updaterOrValue)
+    console.log(updaterOrValue === 'spacious' ? 'comfortable' : updaterOrValue)
+  }
 
   return {
     ...primaryOptions,
@@ -391,11 +397,13 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
     muiSelectCheckboxProps,
     muiSelectAllCheckboxProps,
 
+    renderToolbarInternalActions: MasterTableRender.renderToolbarInternalActions(context),
     renderTopToolbarCustomActions: MasterTableRender.renderTopToolbarCustomActions(context),
     renderBottomToolbarCustomActions: MasterTableRender.renderBottomToolbarCustomActions(context),
     renderRowActions: MasterTableRender.renderRowActions(context),
 
     initialState,
+    // onDensityChange,
   } as MRT_TableOptions<MasterTableData>
 }
 
