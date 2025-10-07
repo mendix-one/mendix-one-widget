@@ -21,3 +21,11 @@ export type MasterTableData = {
   amzoneuid: number
   [key: string]: number | string | boolean | Date
 }
+
+export type MasterTableColumnMeta = {
+  display: 'Text' | 'Integer' | 'Decimal' | 'Currency' | 'Date' | 'Time' | 'DateTime' | 'Label' | 'Tags'
+  action: 'Copy' | 'Open' | 'Custom' | undefined
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon: any | undefined
+  [key: string]: number | string | boolean | Date
+}
