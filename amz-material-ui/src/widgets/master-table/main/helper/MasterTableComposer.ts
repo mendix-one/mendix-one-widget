@@ -393,6 +393,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
 
     renderTopToolbarCustomActions: MasterTableRender.renderTopToolbarCustomActions(context),
     renderBottomToolbarCustomActions: MasterTableRender.renderBottomToolbarCustomActions(context),
+    renderRowActions: MasterTableRender.renderRowActions(context),
 
     initialState,
   } as MRT_TableOptions<MasterTableData>
