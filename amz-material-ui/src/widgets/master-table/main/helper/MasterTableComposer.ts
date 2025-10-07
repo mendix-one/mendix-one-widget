@@ -284,29 +284,29 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
   } as unknown as Partial<MRT_TableOptions<MasterTableData>>
 
   const defaultColumn = {
-    minSize: 80,
+    minSize: 60,
     maxSize: 1000,
     size: 180,
   } as Partial<MRT_ColumnDef<MasterTableData>>
 
   const defaultDisplayColumn = {
-    enableColumnActions: true,
-    enableColumnDragging: true,
-    enableColumnFilter: true,
-    enableColumnFilterModes: true,
-    enableColumnOrdering: true,
-    enableColumnResizing: true,
-    enableGlobalFilter: true,
-    enableGrouping: true,
-    enableHiding: true,
-    enablePinning: true,
-    enableResizing: true,
-    enableSorting: true,
+    enableColumnActions: false,
+    enableColumnDragging: false,
+    enableColumnFilter: false,
+    enableColumnFilterModes: false,
+    enableColumnOrdering: false,
+    enableColumnResizing: false,
+    enableGlobalFilter: false,
+    enableGrouping: false,
+    enableHiding: false,
+    enablePinning: false,
+    enableResizing: false,
+    enableSorting: false,
     sortUndefined: -1,
     sortDescFirst: false,
-    grow: true,
-    minSize: 80,
-    maxSize: 1000,
+    grow: false,
+    minSize: 40,
+    maxSize: 200,
   } as Partial<MRT_ColumnDef<MasterTableData>>
 
   const displayColumnDefOptions = {
@@ -427,7 +427,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
     showColumnFilters: false,
     showGlobalFilter: false,
     columnPinning: {
-      left: ['mrt-row-expand', 'mrt-row-select'],
+      left: ['mrt-row-expand', 'mrt-row-select', 'mrt-row-numbers'],
       right: ['mrt-row-actions'],
     },
     pagination: {
