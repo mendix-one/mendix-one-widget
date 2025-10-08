@@ -17,6 +17,7 @@ import type {
 
 import MasterTableDrawer from './helper/MasterTableDrawer'
 import MasterTableComposer from './helper/MasterTableComposer'
+import * as MasterTableFunctional from './functional'
 import type { MasterTableContextData } from './context/MasterTableContext'
 
 export type MasterTableMainProps = {
@@ -26,6 +27,16 @@ export type MasterTableMainProps = {
   onAction: MasterTablePropAction
   onBuilkAction: MasterTablePropBuilkAction
 }
+
+const displayBuiltInColumnIds = [
+  'mrt-row-pin',
+  'mrt-row-drag',
+  'mrt-row-actions',
+  'mrt-row-expand',
+  'mrt-row-select',
+  'mrt-row-numbers',
+  'mrt-row-spacer',
+]
 
 export default function MasterTableMain(props: MasterTableMainProps) {
   const onReload = () => {
@@ -45,11 +56,21 @@ export default function MasterTableMain(props: MasterTableMainProps) {
   }
 
   const onExportData = (action: string, selection: MasterTableData[]) => {
-    console.log(`onExportData: ${action} - ${selection}`)
+    const columns = table.getAllColumns()
+    MasterTableFunctional.exportDataToCSV(
+      context.title,
+      columns.filter((x) => !displayBuiltInColumnIds.includes(x.id)),
+      data,
+    )
   }
 
   const onPrintOutTable = (action: string, selection: MasterTableData[]) => {
-    console.log(`onPrintOutTable: ${action} - ${selection}`)
+    const columns = table.getAllColumns()
+    MasterTableFunctional.printOutTableData(
+      context.title,
+      columns.filter((x) => !displayBuiltInColumnIds.includes(x.id)),
+      data,
+    )
   }
 
   const context = useMemo<MasterTableContextData>(() => {

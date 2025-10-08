@@ -29,20 +29,28 @@ const ToolbarInternalActions =
       table.setDensity(density)
     }
 
+    const onExportData = () => {
+      context.onExportData('EXPORT_DATASET', [])
+    }
+
+    const onPrintOutTable = () => {
+      context.onPrintOutTable('PRINT_OUT_DATASET', [])
+    }
+
     return (
       <>
         <MRT_ToggleGlobalFilterButton table={table} />
         {!isFilterDisplayModePopover ? <MRT_ToggleFiltersButton table={table} /> : <></>}
         <Box>
           <Tooltip title="Export Data">
-            <IconButton onClick={context.onReload} tabIndex={101}>
+            <IconButton tabIndex={101} onClick={onExportData}>
               <FileDownloadOutlinedIcon />
             </IconButton>
           </Tooltip>
         </Box>
         <Box>
           <Tooltip title="Print Out">
-            <IconButton onClick={context.onCreateNew} tabIndex={102}>
+            <IconButton tabIndex={102} onClick={onPrintOutTable}>
               <PrintOutlinedIcon />
             </IconButton>
           </Tooltip>
