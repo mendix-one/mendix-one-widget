@@ -58,7 +58,7 @@ const BottomToolbarCustomActions =
             <Button
               tabIndex={99}
               variant="outlined"
-              size="small"
+              size="medium"
               endIcon={<MoreVertOutlinedIcon />}
               onClick={() => {
                 setShowMenuBulkActions(true)
@@ -141,7 +141,7 @@ const BottomToolbarCustomActions =
           <Box ref={refAnchorExportData}>
             <Button
               variant="outlined"
-              size="small"
+              size="medium"
               startIcon={<FileDownloadOutlinedIcon />}
               onClick={() => {
                 setShowMenuExportData(true)
@@ -224,13 +224,13 @@ const BottomToolbarCustomActions =
           <Box ref={refAnchorPrintOut}>
             <Button
               variant="outlined"
-              size="small"
+              size="medium"
               startIcon={<PrintOutlinedIcon />}
               onClick={() => {
                 setShowMenuPrintOut(true)
               }}
             >
-              Print Out Table (0)
+              Print Out Table
             </Button>
           </Box>
           <Menu
