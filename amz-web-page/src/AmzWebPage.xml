@@ -20,6 +20,20 @@
           <description />
           <returnType type="String" />
         </property>
+        <property key="optEnabelAIBot" type="boolean" defaultValue="true">
+          <caption>Enable AI Bot</caption>
+          <description />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="Preview">
+        <property key="previewLeftNavigation" type="boolean" required="true" defaultValue="false">
+          <caption>Preview Left Navigation</caption>
+          <description />
+        </property>
+        <property key="previewAIBotPael" type="boolean" required="true" defaultValue="false">
+          <caption>Preview AI Bot Panel</caption>
+          <description />
+        </property>
       </propertyGroup>
     </propertyGroup>
     <propertyGroup caption="Structure">
@@ -28,12 +42,8 @@
           <caption>Brand Logo</caption>
           <description />
         </property>
-        <property key="navbar" type="widgets" required="false">
-          <caption>Navigation Bar</caption>
-          <description />
-        </property>
         <property key="tasks" type="widgets" required="false">
-          <caption>Taks Menu</caption>
+          <caption>Tasks Menu</caption>
           <description />
         </property>
         <property key="notify" type="widgets" required="false">

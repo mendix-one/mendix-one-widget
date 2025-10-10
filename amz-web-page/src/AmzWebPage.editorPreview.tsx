@@ -23,9 +23,7 @@ export function preview(props: AmzWebPagePreviewProps) {
           </div>
           <div className="amz-web-nav" style={{}}>
             <div className="amz-web-wrapper" style={{}}>
-              <props.navbar.renderer caption="Nav Bar">
-                <div />
-              </props.navbar.renderer>
+              &nbsp;
             </div>
           </div>
           <div className="amz-web-menu" style={{}}>

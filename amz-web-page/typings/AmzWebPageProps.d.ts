@@ -12,8 +12,10 @@ export interface AmzWebPageContainerProps {
     style?: CSSProperties;
     tabIndex?: number;
     settings?: DynamicValue<string>;
+    optEnabelAIBot: boolean;
+    previewLeftNavigation: boolean;
+    previewAIBotPael: boolean;
     logo?: ReactNode;
-    navbar?: ReactNode;
     tasks?: ReactNode;
     notify?: ReactNode;
     user?: ReactNode;
@@ -33,8 +35,10 @@ export interface AmzWebPagePreviewProps {
     renderMode: "design" | "xray" | "structure";
     translate: (text: string) => string;
     settings: string;
+    optEnabelAIBot: boolean;
+    previewLeftNavigation: boolean;
+    previewAIBotPael: boolean;
     logo: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
-    navbar: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     tasks: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     notify: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
     user: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
