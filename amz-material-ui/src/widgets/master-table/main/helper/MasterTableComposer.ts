@@ -59,7 +59,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       maxWidth: '100%',
       maxHeight: '100%',
       fontWeight: 400,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
     },
@@ -71,7 +71,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       maxWidth: '100%',
       maxHeight: 'calc(100% - 56px - 56px)',
       fontWeight: 400,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
       borderTop: 1,
@@ -82,7 +82,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
   const muiTableProps = {
     sx: {
       fontWeight: 400,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
     },
@@ -93,7 +93,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       width: '100%',
       height: '56px',
       fontWeight: 400,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
       '& > div': { width: '100%', height: '56px', alignItems: 'center' },
@@ -104,7 +104,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
       width: '100%',
       height: '56px',
       fontWeight: 400,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
       boxShadow: 0,
@@ -115,7 +115,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
     sx: {
       backgroundColor: common.white,
       fontWeight: 400,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
     },
@@ -133,7 +133,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
   const muiTableHeadCellProps = {
     sx: {
       fontWeight: 600,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
       boxShadow: 0,
@@ -196,7 +196,7 @@ export const init = (context: MasterTableContextData): MRT_TableOptions<MasterTa
   const muiTableBodyCellProps = {
     sx: {
       fontWeight: 400,
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       lineHeight: 1.42857142857143,
       letterSpacing: 0,
       backgroundColor: alpha(common.white, 0.000000001),
