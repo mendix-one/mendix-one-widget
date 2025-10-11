@@ -15,49 +15,61 @@
   <properties>
     <propertyGroup caption="General">
       <propertyGroup caption="User Info">
-        <property key="userDisplayName" type="attribute">
+        <property key="pptDisplayName" type="attribute" required="false">
           <caption>Display Name</caption>
           <description />
           <attributeTypes>
             <attributeType name="String" />
           </attributeTypes>
         </property>
+        <property key="pptUserRoles" type="attribute" required="false">
+          <caption>User Roles</caption>
+          <description />
+          <attributeTypes>
+            <attributeType name="String" />
+          </attributeTypes>
+        </property>
+        <property key="pptAvatar" type="image" required="false">
+          <caption>Avatar</caption>
+          <description />
+        </property>
       </propertyGroup>
-    </propertyGroup>
-    <propertyGroup caption="Actions">
-      <propertyGroup caption="Select Language">
-        <property key="changeLanuage" type="action" defaultType="CallNanoflow">
+      <propertyGroup caption="Actions">
+        <property key="actChangeLanuage" type="action" required="false">
           <caption>Select Language</caption>
           <description />
         </property>
-      </propertyGroup>
-      <propertyGroup caption="Account Profile">
-        <property key="showProfile" type="action" defaultType="CallNanoflow">
+        <property key="actShowProfile" type="action" required="false">
           <caption>Account Profile</caption>
           <description />
         </property>
-      </propertyGroup>
-      <propertyGroup caption="Change Password">
-        <property key="changePassword" type="action" defaultType="CallNanoflow">
+        <property key="actChangePassword" type="action" required="false">
           <caption>Change Password</caption>
           <description />
         </property>
-      </propertyGroup>
-      <propertyGroup caption="Custom Settings">
-        <property key="customSettings" type="action" defaultType="CallNanoflow">
+        <property key="actCustomSettings" type="action" required="false">
           <caption>Custom Settings</caption>
           <description />
         </property>
       </propertyGroup>
     </propertyGroup>
-    <propertyGroup caption="Text Templates">
-      <property key="txtAccountProfile" type="textTemplate">
-        <caption>Account Profile</caption>
-        <description />
-        <translations>
-          <translation lang="en_US">Account Profile</translation>
-        </translations>
-      </property>
+    <propertyGroup caption="Settings">
+      <propertyGroup caption="Theme Tokens">
+        <property key="optThemeTokens" type="expression" required="false" defaultValue="empty">
+          <caption>Theme Tokens</caption>
+          <description />
+          <returnType type="String" />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="Text Templates">
+        <property key="txtAccountProfile" type="textTemplate" required="false">
+          <caption>Account Profile</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">Account Profile</translation>
+          </translations>
+        </property>
+      </propertyGroup>
     </propertyGroup>
   </properties>
 </widget>

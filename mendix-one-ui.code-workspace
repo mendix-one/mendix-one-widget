@@ -21,20 +21,12 @@
 			"path": "amz-user-menu"
 		},
 		{
-			"name": "amz-top-nav",
-			"path": "amz-top-nav"
-		},
-		{
 			"name": "amz-top-notify",
 			"path": "amz-top-notify"
 		},
 		{
 			"name": "amz-top-tasks",
 			"path": "amz-top-tasks"
-		},
-		{
-			"name": "amz-left-nav",
-			"path": "amz-left-nav"
 		}
 	],
 	"settings": {}

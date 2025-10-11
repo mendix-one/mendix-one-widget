@@ -4,19 +4,22 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, DynamicValue, EditableValue } from "mendix";
+import { ActionValue, DynamicValue, EditableValue, WebImage } from "mendix";
 
 export interface AmzUserMenuContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    userDisplayName: EditableValue<string>;
-    changeLanuage?: ActionValue;
-    showProfile?: ActionValue;
-    changePassword?: ActionValue;
-    customSettings?: ActionValue;
-    txtAccountProfile: DynamicValue<string>;
+    pptDisplayName?: EditableValue<string>;
+    pptUserRoles?: EditableValue<string>;
+    pptAvatar?: DynamicValue<WebImage>;
+    actChangeLanuage?: ActionValue;
+    actShowProfile?: ActionValue;
+    actChangePassword?: ActionValue;
+    actCustomSettings?: ActionValue;
+    optThemeTokens?: DynamicValue<string>;
+    txtAccountProfile?: DynamicValue<string>;
 }
 
 export interface AmzUserMenuPreviewProps {
@@ -30,10 +33,13 @@ export interface AmzUserMenuPreviewProps {
     readOnly: boolean;
     renderMode: "design" | "xray" | "structure";
     translate: (text: string) => string;
-    userDisplayName: string;
-    changeLanuage: {} | null;
-    showProfile: {} | null;
-    changePassword: {} | null;
-    customSettings: {} | null;
+    pptDisplayName: string;
+    pptUserRoles: string;
+    pptAvatar: { type: "static"; imageUrl: string; } | { type: "dynamic"; entity: string; } | null;
+    actChangeLanuage: {} | null;
+    actShowProfile: {} | null;
+    actChangePassword: {} | null;
+    actCustomSettings: {} | null;
+    optThemeTokens: string;
     txtAccountProfile: string;
 }

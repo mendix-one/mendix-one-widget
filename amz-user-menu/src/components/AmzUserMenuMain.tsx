@@ -21,6 +21,7 @@ export type AmzUserMenuMainProps = {
 }
 
 export default function AmzUserMenuMain(props: AmzUserMenuMainProps) {
+  console.log(props.displayName)
   const anchorElRef = useRef<HTMLElement | undefined>()
   const [showMenu, setShowMenu] = useState<boolean>(false)
 
