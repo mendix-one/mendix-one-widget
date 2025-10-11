@@ -4,19 +4,20 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, DynamicValue, EditableValue } from "mendix";
+import { ActionValue, DynamicValue, ListValue, ListActionValue, ListAttributeValue } from "mendix";
+import { Big } from "big.js";
 
 export interface AmzTopNotifyContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    userDisplayName: EditableValue<string>;
-    changeLanuage?: ActionValue;
-    showProfile?: ActionValue;
-    changePassword?: ActionValue;
-    customSettings?: ActionValue;
-    txtAccountProfile: DynamicValue<string>;
+    dsTopNotify?: ListValue;
+    attKey?: ListAttributeValue<Big | string>;
+    actReadNotify?: ListActionValue;
+    actMarkAllAsRead?: ActionValue;
+    optThemeTokens?: DynamicValue<string>;
+    txtAccountProfile?: DynamicValue<string>;
 }
 
 export interface AmzTopNotifyPreviewProps {
@@ -30,10 +31,10 @@ export interface AmzTopNotifyPreviewProps {
     readOnly: boolean;
     renderMode: "design" | "xray" | "structure";
     translate: (text: string) => string;
-    userDisplayName: string;
-    changeLanuage: {} | null;
-    showProfile: {} | null;
-    changePassword: {} | null;
-    customSettings: {} | null;
+    dsTopNotify: {} | { caption: string } | { type: string } | null;
+    attKey: string;
+    actReadNotify: {} | null;
+    actMarkAllAsRead: {} | null;
+    optThemeTokens: string;
     txtAccountProfile: string;
 }
