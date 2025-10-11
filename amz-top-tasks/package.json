@@ -1,8 +1,8 @@
 {
-  "name": "amzusermenu",
-  "widgetName": "AmzUserMenu",
+  "name": "amztoptasks",
+  "widgetName": "AmzTopTasks",
   "version": "1.1.0",
-  "description": "Mendix One Kit - User Menu",
+  "description": "Mendix One Kit - Top Tasks",
   "copyright": "© Mendix One 2025. All rights reserved.",
   "author": "Danniel Nguyen",
   "engines": {
@@ -10,7 +10,7 @@
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "../../Mendix/MendixOneKit",
+    "projectPath": "../../Mendix/MendixOneKit-main",
     "mendixHost": "http://localhost:8080",
     "developmentPort": 3000
   },

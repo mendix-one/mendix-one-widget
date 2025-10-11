@@ -1,6 +1,6 @@
-## AmzUserMenu
+## AmzTopTasks
 
-[Mendix One Kit - User Menu]
+[Mendix One Kit - Top Tasks]
 
 ## Features
 
