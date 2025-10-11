@@ -57,7 +57,7 @@ $right-aibot-panel: 320px;
       }
 
       .amz-web-toggle {
-        width: $topbar-height;
+        width: 32px;
         height: 100%;
 
         > .amz-web-wrapper {
@@ -65,7 +65,7 @@ $right-aibot-panel: 320px;
           height: 100%;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: end;
           overflow: hidden;
         }
       }
@@ -136,6 +136,7 @@ $right-aibot-panel: 320px;
       flex-grow: 1;
       min-height: 100%;
       min-height: calc(600px - $topbar-height);
+      padding: 8px;
 
       > .amz-web-wrapper {
         width: 100%;

@@ -25,7 +25,7 @@ export function preview(props: AmzTopLogoPreviewProps) {
         </div>
         <div className='amz-top-logo-text'>
           <div className='amz-web-wrapper'>
-            <span>{text}</span>
+            <p>{text}</p>
           </div>
         </div>
       </div>

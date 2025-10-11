@@ -5,7 +5,7 @@ $left-nav-panel: 220px;
 $right-aibot-panel: 320px;
 
 .amz-top-logo-preview {
-  width: calc($left-nav-panel - $topbar-height);
+  width: calc($left-nav-panel - 32px);
   height: $topbar-height;
 
   > .amz-web-wrapper {
@@ -17,7 +17,7 @@ $right-aibot-panel: 320px;
   }
 
   .amz-top-logo-image {
-    width: $topbar-height;
+    width: 32px;
     height: 100%;
 
     > .amz-web-wrapper {
@@ -39,8 +39,9 @@ $right-aibot-panel: 320px;
   }
 
   .amz-top-logo-text {
-    width: calc(100% - $topbar-height);
+    width: calc(100% - 32px);
     height: 100%;
+    padding-left: 4px;
 
     > .amz-web-wrapper {
       width: 100%;
@@ -50,10 +51,15 @@ $right-aibot-panel: 320px;
       justify-content: left;
     }
 
-    span {
+    p {
       font-size: 20px;
       font-weight: bold;
       color: $secondary;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
