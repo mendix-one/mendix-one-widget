@@ -1,7 +1,8 @@
 @use './variables' as *;
 
-$topbar-height: calc(12 * unit);
-$sidebar-width: calc(50 * unit);
+$topbar-height: 48px;
+$left-nav-panel: 220px;
+$right-aibot-panel: 320px;
 
 .amz-web-page-preview {
   > .amz-web-wrapper {
@@ -27,10 +28,47 @@ $sidebar-width: calc(50 * unit);
       overflow: hidden;
     }
 
-    .aamz-web-brand {
+    .amz-web-brand {
       flex-grow: 0;
-      width: $sidebar-width;
+      width: $left-nav-panel;
       height: 100%;
+
+      > .amz-web-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+
+      .amz-web-logo {
+        width: calc(100% - $topbar-height);
+        height: 100%;
+
+        > .amz-web-wrapper {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          overflow: hidden;
+        }
+      }
+
+      .amz-web-toggle {
+        width: $topbar-height;
+        height: 100%;
+
+        > .amz-web-wrapper {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+      }
     }
 
     .amz-web-nav {
@@ -41,13 +79,40 @@ $sidebar-width: calc(50 * unit);
     .amz-web-menu {
       flex-grow: 0;
       height: 100%;
+
+      > .amz-web-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        overflow: hidden;
+      }
+
+      .amz-web-menu-item {
+        width: $topbar-height;
+        height: 100%;
+
+        > .amz-web-wrapper {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+      }
     }
   }
 
   .amz-web-body {
+    width: 100%;
+    height: calc(100% - $topbar-height);
+    min-height: calc(600px - $topbar-height);
+
     > .amz-web-wrapper {
       width: 100%;
-      height: calc(100% - $topbar-height);
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -56,8 +121,9 @@ $sidebar-width: calc(50 * unit);
 
     .amz-web-sidebar {
       flex-grow: 0;
-      width: $sidebar-width;
+      width: $left-nav-panel;
       height: 100%;
+      min-height: calc(600px - $topbar-height);
 
       > .amz-web-wrapper {
         width: 100%;
@@ -69,6 +135,7 @@ $sidebar-width: calc(50 * unit);
     .amz-web-content {
       flex-grow: 1;
       min-height: 100%;
+      min-height: calc(600px - $topbar-height);
 
       > .amz-web-wrapper {
         width: 100%;
@@ -76,5 +143,10 @@ $sidebar-width: calc(50 * unit);
         display: block;
       }
     }
+  }
+
+  .amz-widget-placeholder {
+    width: 100%;
+    height: 100%;
   }
 }
