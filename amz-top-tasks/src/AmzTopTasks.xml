@@ -49,11 +49,11 @@
         </property>
       </propertyGroup>
       <propertyGroup caption="Text Templates">
-        <property key="txtCopyright" type="textTemplate" required="false">
-          <caption>Copyright</caption>
+        <property key="txtCheck" type="textTemplate" required="false">
+          <caption>Check A Task</caption>
           <description />
           <translations>
-            <translation lang="en_US">© Amz One MFG - 2025.</translation>
+            <translation lang="en_US">Check</translation>
           </translations>
         </property>
       </propertyGroup>

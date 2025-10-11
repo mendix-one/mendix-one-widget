@@ -49,11 +49,18 @@
         </property>
       </propertyGroup>
       <propertyGroup caption="Text Templates">
-        <property key="txtCopyright" type="textTemplate" required="false">
-          <caption>Copyright</caption>
+        <property key="txtReadNotify" type="textTemplate" required="false">
+          <caption>Read notify</caption>
           <description />
           <translations>
-            <translation lang="en_US">© Amz One MFG - 2025.</translation>
+            <translation lang="en_US">Read</translation>
+          </translations>
+        </property>
+        <property key="txtMarkAllAsRead" type="textTemplate" required="false">
+          <caption>Mark All As Read</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">Mark All As Read</translation>
           </translations>
         </property>
       </propertyGroup>

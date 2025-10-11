@@ -17,7 +17,7 @@ export interface AmzTopTasksContainerProps {
     actReadNotify?: ListActionValue;
     actMarkAllAsRead?: ActionValue;
     optThemeTokens?: DynamicValue<string>;
-    txtAccountProfile?: DynamicValue<string>;
+    txtCheck?: DynamicValue<string>;
 }
 
 export interface AmzTopTasksPreviewProps {
@@ -36,5 +36,5 @@ export interface AmzTopTasksPreviewProps {
     actReadNotify: {} | null;
     actMarkAllAsRead: {} | null;
     optThemeTokens: string;
-    txtAccountProfile: string;
+    txtCheck: string;
 }
