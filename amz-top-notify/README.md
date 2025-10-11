@@ -1,4 +1,4 @@
-## AmzUserMenu
+## AmzTopNotify
 
 [Mendix One Kit - User Menu]
 

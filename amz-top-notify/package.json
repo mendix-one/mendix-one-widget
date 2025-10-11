@@ -1,6 +1,6 @@
 {
-  "name": "amzusermenu",
-  "widgetName": "AmzUserMenu",
+  "name": "amztopnotify",
+  "widgetName": "AmzTopNotify",
   "version": "1.1.0",
   "description": "Mendix One Kit - User Menu",
   "copyright": "© Mendix One 2025. All rights reserved.",
@@ -10,7 +10,7 @@
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "../../Mendix/MendixOneKit",
+    "projectPath": "../../Mendix/MendixOneKit-main",
     "mendixHost": "http://localhost:8080",
     "developmentPort": 3000
   },

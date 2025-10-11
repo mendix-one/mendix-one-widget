@@ -1,12 +1,12 @@
 /**
- * This file was generated from AmzUserMenu.xml
+ * This file was generated from AmzTopNotify.xml
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
 import { ActionValue, DynamicValue, EditableValue } from "mendix";
 
-export interface AmzUserMenuContainerProps {
+export interface AmzTopNotifyContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
@@ -19,7 +19,7 @@ export interface AmzUserMenuContainerProps {
     txtAccountProfile: DynamicValue<string>;
 }
 
-export interface AmzUserMenuPreviewProps {
+export interface AmzTopNotifyPreviewProps {
     /**
      * @deprecated Deprecated since version 9.18.0. Please use class property instead.
      */
