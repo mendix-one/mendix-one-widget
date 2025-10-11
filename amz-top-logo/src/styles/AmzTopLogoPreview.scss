@@ -1,0 +1,59 @@
+@use './variables' as *;
+
+$topbar-height: 48px;
+$left-nav-panel: 220px;
+$right-aibot-panel: 320px;
+
+.amz-top-logo-preview {
+  width: calc($left-nav-panel - $topbar-height);
+  height: $topbar-height;
+
+  > .amz-web-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .amz-top-logo-image {
+    width: $topbar-height;
+    height: 100%;
+
+    > .amz-web-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      max-width: 28px;
+      max-height: 28px;
+    }
+    .image {
+      max-width: 28px;
+      max-height: 28px;
+    }
+  }
+
+  .amz-top-logo-text {
+    width: calc(100% - $topbar-height);
+    height: 100%;
+
+    > .amz-web-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+    }
+
+    span {
+      font-size: 20px;
+      font-weight: bold;
+      color: $secondary;
+    }
+  }
+}

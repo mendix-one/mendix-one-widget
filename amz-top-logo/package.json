@@ -10,7 +10,7 @@
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "../../Mendix/MendixOneKit",
+    "projectPath": "../../Mendix/MendixOneKit-main",
     "mendixHost": "http://localhost:8080",
     "developmentPort": 3000
   },
@@ -27,11 +27,15 @@
   },
   "devDependencies": {
     "@mendix/pluggable-widgets-tools": "^10.21.2",
-    "@types/big.js": "^6.0.2"
+    "@types/big.js": "^6.0.2",
+    "sass-embedded": "^1.93.0"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "sass-embedded": "^1.93.0"
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/material": "^7.3.2",
+    "classnames": "^2.2.6"
   },
   "resolutions": {
     "react": "^18.3.1",

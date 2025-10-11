@@ -14,52 +14,35 @@
   <icon />
   <properties>
     <propertyGroup caption="General">
-      <property key="context" type="object" isList="true">
-        <caption>AMZ Top Logo Context</caption>
-        <description />
-        <properties>
-          <propertyGroup caption="Page Conext And Settings">
-            <property key="settings" type="string" defaultValue="{}">
-              <caption>User Custom Settings</caption>
-              <description>User Custom Settings - Material Design Settings</description>
-            </property>
-            <property key="showLeftSidebar" type="boolean" defaultValue="false">
-              <caption>Left Side Bar State</caption>
-              <description>Left Side Bar State: show or hide</description>
-            </property>
-          </propertyGroup>
-        </properties>
-      </property>
-    </propertyGroup>
-    <propertyGroup caption="Structure">
-      <propertyGroup caption="Top Bar">
-        <property key="logo" type="widgets" required="false">
-          <caption>Brand Logo</caption>
-          <description>Top Bar - Brand Logo</description>
+      <propertyGroup caption="Brand Logo">
+        <property key="pptLogo" type="image" required="false">
+          <caption>Logo Image</caption>
+          <description />
         </property>
-        <property key="notify" type="widgets" required="false">
-          <caption>Notify</caption>
-          <description>Top Bar - Noitfy Menu</description>
+        <property key="pptText" type="textTemplate" required="false">
+          <caption>Logo Text</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">Your Brand</translation>
+          </translations>
         </property>
-        <property key="tasks" type="widgets" required="false">
-          <caption>Taks</caption>
-          <description>Top Bar - Tasks Menu</description>
+        <property key="pptTitle" type="textTemplate" required="false">
+          <caption>Logo Title</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">Your Brand</translation>
+          </translations>
         </property>
-        <property key="user" type="widgets" required="false">
-          <caption>Users</caption>
-          <description>Top Bar - Top Logo</description>
+        <property key="actOnClick" type="action" required="false">
+          <caption>On Click</caption>
+          <description />
         </property>
       </propertyGroup>
-      <propertyGroup caption="Side Bar">
-        <property key="sidebar" type="widgets" required="false">
-          <caption>Left Sidebar</caption>
-          <description>Left Sidebar - Pages Menu</description>
-        </property>
-      </propertyGroup>
-      <propertyGroup caption="Main Content">
-        <property key="content" type="widgets" required="false">
-          <caption>Main Content</caption>
-          <description>Page Main Content</description>
+      <propertyGroup caption="Theme Tokens">
+        <property key="optThemeTokens" type="expression" required="false" defaultValue="empty">
+          <caption>Theme Tokens</caption>
+          <description />
+          <returnType type="String" />
         </property>
       </propertyGroup>
     </propertyGroup>
