@@ -14,15 +14,9 @@ import Typography from '@mui/material/Typography'
 
 import { blueGrey } from '@mui/material/colors'
 
-import AppLogo from './AppLogo'
-import AppTasks from './AppTasks'
-import AppNotify from './AppNotify'
-import AppUserMenu from './AppUserMenu'
-
 import MenuIcon from '@mui/icons-material/Menu'
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined'
 
-import AppLeftNav from './AppLeftNav'
 import AIChatBot from '../aibot/AIChatBot'
 
 const cfxSideBarLeftWidth = 220
@@ -30,13 +24,14 @@ const cfxSideBarRightWidth = 320
 
 export type AmzWebAppProps = {
   logo?: ReactNode | undefined
-  navigation?: ReactNode | undefined
   tasks?: ReactNode | undefined
   notify?: ReactNode | undefined
   userMenu?: ReactNode | undefined
+  navigation?: ReactNode | undefined
+  aiChatBox?: ReactNode | undefined
 }
 
-export default function AmzWebApp({ children }: PropsWithChildren<AmzWebAppProps>) {
+export default function AmzWebApp(props: PropsWithChildren<AmzWebAppProps>) {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 
@@ -91,7 +86,7 @@ export default function AmzWebApp({ children }: PropsWithChildren<AmzWebAppProps
               }}
             >
               <Box sx={{ flexGrow: 1, maxHeight: '100%', pr: 4 }}>
-                <AppLogo />
+                {props.logo}
               </Box>
               <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
                 <Tooltip title="Navigation">
@@ -114,10 +109,10 @@ export default function AmzWebApp({ children }: PropsWithChildren<AmzWebAppProps
           <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
             <Stack direction="row" spacing={1}>
               <Stack>
-                <AppTasks />
+                {props.tasks}
               </Stack>
               <Stack>
-                <AppNotify />
+                {props.notify}
               </Stack>
               <Stack>
                 <Box>
@@ -138,7 +133,7 @@ export default function AmzWebApp({ children }: PropsWithChildren<AmzWebAppProps
                 </Box>
               </Stack>
               <Stack>
-                <AppUserMenu />
+                {props.userMenu}
               </Stack>
             </Stack>
           </Box>
@@ -166,7 +161,7 @@ export default function AmzWebApp({ children }: PropsWithChildren<AmzWebAppProps
             p: 2,
           }}
         >
-          {children}
+          {props.children}
         </Box>
       </Box>
       <Drawer
@@ -186,7 +181,7 @@ export default function AmzWebApp({ children }: PropsWithChildren<AmzWebAppProps
             <Toolbar variant="dense" disableGutters={true} />
           </Box>
           <Box sx={{ width: '100%', height: 'calc(100% - 48px - 40px)', overflowX: 'hidden', overflowY: 'auto' }}>
-            <AppLeftNav />
+            {props.navigation}
           </Box>
           <Box
             sx={{

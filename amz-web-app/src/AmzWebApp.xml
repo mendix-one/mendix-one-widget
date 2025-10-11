@@ -14,55 +14,97 @@
   <icon />
   <properties>
     <propertyGroup caption="General">
-      <propertyGroup caption="Custom Settings">
-        <property key="settings" type="expression" required="false" defaultValue="empty">
-          <caption>Custom Settings</caption>
+      <propertyGroup caption="Page Events">
+        <property key="actEnterPage" type="action" required="false">
+          <caption>Enter Page</caption>
           <description />
-          <returnType type="String" />
+          <actionVariables>
+            <actionVariable key="params" type="String" caption="Params: Json string object" />
+          </actionVariables>
         </property>
+        <property key="actExitPage" type="action" required="false">
+          <caption>Exit Page</caption>
+          <description />
+          <actionVariables>
+            <actionVariable key="params" type="String" caption="Params: Json string object" />
+          </actionVariables>
+        </property>
+        <property key="actChangePage" type="action" required="false">
+          <caption>Change Page</caption>
+          <description />
+          <actionVariables>
+            <actionVariable key="params" type="String" caption="Params: Json string object" />
+          </actionVariables>
+        </property>
+      </propertyGroup>
+    </propertyGroup>
+    <propertyGroup caption="Settings">
+      <propertyGroup caption="Custom Layout">
         <property key="optEnabelAIBot" type="boolean" defaultValue="true">
           <caption>Enable AI Bot</caption>
           <description />
         </property>
       </propertyGroup>
-      <propertyGroup caption="Preview">
-        <property key="previewLeftNavigation" type="boolean" required="true" defaultValue="false">
-          <caption>Preview Left Navigation</caption>
+      <propertyGroup caption="Preview Mode">
+        <property key="previewNavigationPanel" type="boolean" required="true" defaultValue="false">
+          <caption>Preview Navigation Panel</caption>
           <description />
         </property>
-        <property key="previewAIBotPael" type="boolean" required="true" defaultValue="false">
+        <property key="previewAIBotPanel" type="boolean" required="true" defaultValue="false">
           <caption>Preview AI Bot Panel</caption>
           <description />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="Custom Theme">
+        <property key="optThemeTokens" type="expression" required="false" defaultValue="empty">
+          <caption>Theme Tokens</caption>
+          <description />
+          <returnType type="String" />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="Text Templates">
+        <property key="txtCopyright" type="textTemplate" required="false">
+          <caption>Copyright</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">© Amz One MFG - 2025.</translation>
+          </translations>
         </property>
       </propertyGroup>
     </propertyGroup>
     <propertyGroup caption="Structure">
       <propertyGroup caption="Top Bar">
-        <property key="logo" type="widgets" required="false">
+        <property key="wdgBrandLogo" type="widgets" required="false">
           <caption>Brand Logo</caption>
           <description />
         </property>
-        <property key="tasks" type="widgets" required="false">
-          <caption>Tasks Menu</caption>
+        <property key="wdgTopTasks" type="widgets" required="false">
+          <caption>Top Tasks</caption>
           <description />
         </property>
-        <property key="notify" type="widgets" required="false">
-          <caption>Notify Menu</caption>
+        <property key="wdgTopNotify" type="widgets" required="false">
+          <caption>Top Notify</caption>
           <description />
         </property>
-        <property key="user" type="widgets" required="false">
-          <caption>Users Menu</caption>
+        <property key="wdgUserMenu" type="widgets" required="false">
+          <caption>User Menu</caption>
           <description />
         </property>
       </propertyGroup>
-      <propertyGroup caption="Side Bar">
-        <property key="sidebar" type="widgets" required="false">
-          <caption>Left Sidebar</caption>
+      <propertyGroup caption="Navigation">
+        <property key="wdgPageNavBar" type="widgets" required="false">
+          <caption>Navigation Bar</caption>
+          <description />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="AI Chat Box">
+        <property key="wdgAIChatBox" type="widgets" required="false">
+          <caption>AI Chat Box</caption>
           <description />
         </property>
       </propertyGroup>
       <propertyGroup caption="Main Content">
-        <property key="content" type="widgets" required="false">
+        <property key="wdgMainContent" type="widgets" required="false">
           <caption>Main Content</caption>
           <description />
         </property>

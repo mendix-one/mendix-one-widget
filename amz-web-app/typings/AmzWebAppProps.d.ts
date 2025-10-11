@@ -4,23 +4,28 @@
  * @author Mendix Widgets Framework Team
  */
 import { ComponentType, CSSProperties, ReactNode } from "react";
-import { DynamicValue } from "mendix";
+import { ActionValue, DynamicValue, Option } from "mendix";
 
 export interface AmzWebAppContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    settings?: DynamicValue<string>;
+    actEnterPage?: ActionValue<{ params: Option<string> }>;
+    actExitPage?: ActionValue<{ params: Option<string> }>;
+    actChangePage?: ActionValue<{ params: Option<string> }>;
     optEnabelAIBot: boolean;
-    previewLeftNavigation: boolean;
-    previewAIBotPael: boolean;
-    logo?: ReactNode;
-    tasks?: ReactNode;
-    notify?: ReactNode;
-    user?: ReactNode;
-    sidebar?: ReactNode;
-    content?: ReactNode;
+    previewNavigationPanel: boolean;
+    previewAIBotPanel: boolean;
+    optThemeTokens?: DynamicValue<string>;
+    txtCopyright?: DynamicValue<string>;
+    wdgBrandLogo?: ReactNode;
+    wdgTopTasks?: ReactNode;
+    wdgTopNotify?: ReactNode;
+    wdgUserMenu?: ReactNode;
+    wdgPageNavBar?: ReactNode;
+    wdgAIChatBox?: ReactNode;
+    wdgMainContent?: ReactNode;
 }
 
 export interface AmzWebAppPreviewProps {
@@ -34,14 +39,19 @@ export interface AmzWebAppPreviewProps {
     readOnly: boolean;
     renderMode: "design" | "xray" | "structure";
     translate: (text: string) => string;
-    settings: string;
+    actEnterPage: {} | null;
+    actExitPage: {} | null;
+    actChangePage: {} | null;
     optEnabelAIBot: boolean;
-    previewLeftNavigation: boolean;
-    previewAIBotPael: boolean;
-    logo: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
-    tasks: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
-    notify: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
-    user: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
-    sidebar: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
-    content: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    previewNavigationPanel: boolean;
+    previewAIBotPanel: boolean;
+    optThemeTokens: string;
+    txtCopyright: string;
+    wdgBrandLogo: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    wdgTopTasks: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    wdgTopNotify: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    wdgUserMenu: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    wdgPageNavBar: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    wdgAIChatBox: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
+    wdgMainContent: { widgetCount: number; renderer: ComponentType<{ children: ReactNode; caption?: string }> };
 }
