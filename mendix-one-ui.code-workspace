@@ -5,10 +5,6 @@
 			"path": "amz-material-ui"
 		},
 		{
-			"name": "amz-web-ui",
-			"path": "amz-web-ui"
-		},
-		{
 			"name": "amz-web-page",
 			"path": "amz-web-page"
 		},

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget
+  id="one.mendix.widget.web.amzwebapp.AmzWebApp"
+  pluginWidget="true"
+  needsEntityContext="true"
+  offlineCapable="true"
+  supportedPlatform="Web"
+  xmlns="http://www.mendix.com/widget/1.0/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd"
+>
+  <name>Amz Web App</name>
+  <description>Mendix One Kit - Web App</description>
+  <icon />
+  <properties>
+    <propertyGroup caption="General">
+      <propertyGroup caption="Custom Settings">
+        <property key="settings" type="expression" required="false" defaultValue="empty">
+          <caption>Custom Settings</caption>
+          <description />
+          <returnType type="String" />
+        </property>
+        <property key="optEnabelAIBot" type="boolean" defaultValue="true">
+          <caption>Enable AI Bot</caption>
+          <description />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="Preview">
+        <property key="previewLeftNavigation" type="boolean" required="true" defaultValue="false">
+          <caption>Preview Left Navigation</caption>
+          <description />
+        </property>
+        <property key="previewAIBotPael" type="boolean" required="true" defaultValue="false">
+          <caption>Preview AI Bot Panel</caption>
+          <description />
+        </property>
+      </propertyGroup>
+    </propertyGroup>
+    <propertyGroup caption="Structure">
+      <propertyGroup caption="Top Bar">
+        <property key="logo" type="widgets" required="false">
+          <caption>Brand Logo</caption>
+          <description />
+        </property>
+        <property key="tasks" type="widgets" required="false">
+          <caption>Tasks Menu</caption>
+          <description />
+        </property>
+        <property key="notify" type="widgets" required="false">
+          <caption>Notify Menu</caption>
+          <description />
+        </property>
+        <property key="user" type="widgets" required="false">
+          <caption>Users Menu</caption>
+          <description />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="Side Bar">
+        <property key="sidebar" type="widgets" required="false">
+          <caption>Left Sidebar</caption>
+          <description />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="Main Content">
+        <property key="content" type="widgets" required="false">
+          <caption>Main Content</caption>
+          <description />
+        </property>
+      </propertyGroup>
+    </propertyGroup>
+  </properties>
+</widget>
