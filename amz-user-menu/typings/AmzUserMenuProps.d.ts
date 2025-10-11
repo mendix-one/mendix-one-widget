@@ -18,8 +18,13 @@ export interface AmzUserMenuContainerProps {
     actShowProfile?: ActionValue;
     actChangePassword?: ActionValue;
     actCustomSettings?: ActionValue;
+    actLogout?: ActionValue;
     optThemeTokens?: DynamicValue<string>;
-    txtCopyright?: DynamicValue<string>;
+    txtLanguage?: DynamicValue<string>;
+    txtAccountProfile?: DynamicValue<string>;
+    txtChangePassword?: DynamicValue<string>;
+    txtCustomSettings?: DynamicValue<string>;
+    txtLogout?: DynamicValue<string>;
 }
 
 export interface AmzUserMenuPreviewProps {
@@ -40,6 +45,11 @@ export interface AmzUserMenuPreviewProps {
     actShowProfile: {} | null;
     actChangePassword: {} | null;
     actCustomSettings: {} | null;
+    actLogout: {} | null;
     optThemeTokens: string;
-    txtCopyright: string;
+    txtLanguage: string;
+    txtAccountProfile: string;
+    txtChangePassword: string;
+    txtCustomSettings: string;
+    txtLogout: string;
 }

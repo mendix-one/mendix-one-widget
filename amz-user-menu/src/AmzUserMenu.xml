@@ -51,6 +51,10 @@
           <caption>Custom Settings</caption>
           <description />
         </property>
+        <property key="actLogout" type="action" required="false">
+          <caption>Logout</caption>
+          <description />
+        </property>
       </propertyGroup>
     </propertyGroup>
     <propertyGroup caption="Settings">
@@ -62,11 +66,39 @@
         </property>
       </propertyGroup>
       <propertyGroup caption="Text Templates">
-        <property key="txtCopyright" type="textTemplate" required="false">
-          <caption>Copyright</caption>
+        <property key="txtLanguage" type="textTemplate" required="false">
+          <caption>Language</caption>
           <description />
           <translations>
-            <translation lang="en_US">© Amz One MFG - 2025.</translation>
+            <translation lang="en_US">English (United State)</translation>
+          </translations>
+        </property>
+        <property key="txtAccountProfile" type="textTemplate" required="false">
+          <caption>Account Profile</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">Account Profile</translation>
+          </translations>
+        </property>
+        <property key="txtChangePassword" type="textTemplate" required="false">
+          <caption>Change Password</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">Change Password</translation>
+          </translations>
+        </property>
+        <property key="txtCustomSettings" type="textTemplate" required="false">
+          <caption>Custom Settings</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">Custom Settings</translation>
+          </translations>
+        </property>
+        <property key="txtLogout" type="textTemplate" required="false">
+          <caption>Logout</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">Logout</translation>
           </translations>
         </property>
       </propertyGroup>
