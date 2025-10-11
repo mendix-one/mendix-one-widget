@@ -18,10 +18,6 @@ export default function AmzTopLogoMain(props: AmzTopLogoMainProps) {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 
-  const onClick = () => {
-    console.log('/')
-  }
-
   return (
     <Card
       sx={{
@@ -35,7 +31,7 @@ export default function AmzTopLogoMain(props: AmzTopLogoMainProps) {
         cursor: 'pointer',
         userSelect: 'none',
       }}
-      onClick={onClick}
+      onClick={props.onClick}
       tabIndex={props.tabIndex || 1000}
     >
       <Box sx={{ width: 28, height: 28 }}>

@@ -16,6 +16,7 @@ export interface AmzTopLogoContainerProps {
     pptTitle?: DynamicValue<string>;
     actOnClick?: ActionValue;
     optThemeTokens?: DynamicValue<string>;
+    txtCopyright?: DynamicValue<string>;
 }
 
 export interface AmzTopLogoPreviewProps {
@@ -34,4 +35,5 @@ export interface AmzTopLogoPreviewProps {
     pptTitle: string;
     actOnClick: {} | null;
     optThemeTokens: string;
+    txtCopyright: string;
 }

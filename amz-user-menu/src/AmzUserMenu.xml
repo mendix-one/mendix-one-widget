@@ -54,7 +54,7 @@
       </propertyGroup>
     </propertyGroup>
     <propertyGroup caption="Settings">
-      <propertyGroup caption="Theme Tokens">
+      <propertyGroup caption="Custom Theme">
         <property key="optThemeTokens" type="expression" required="false" defaultValue="empty">
           <caption>Theme Tokens</caption>
           <description />
@@ -62,11 +62,11 @@
         </property>
       </propertyGroup>
       <propertyGroup caption="Text Templates">
-        <property key="txtAccountProfile" type="textTemplate" required="false">
-          <caption>Account Profile</caption>
+        <property key="txtCopyright" type="textTemplate" required="false">
+          <caption>Copyright</caption>
           <description />
           <translations>
-            <translation lang="en_US">Account Profile</translation>
+            <translation lang="en_US">© Amz One MFG - 2025.</translation>
           </translations>
         </property>
       </propertyGroup>

@@ -38,11 +38,22 @@
           <description />
         </property>
       </propertyGroup>
-      <propertyGroup caption="Theme Tokens">
+    </propertyGroup>
+    <propertyGroup caption="Settings">
+      <propertyGroup caption="Custom Theme">
         <property key="optThemeTokens" type="expression" required="false" defaultValue="empty">
           <caption>Theme Tokens</caption>
           <description />
           <returnType type="String" />
+        </property>
+      </propertyGroup>
+      <propertyGroup caption="Text Templates">
+        <property key="txtCopyright" type="textTemplate" required="false">
+          <caption>Copyright</caption>
+          <description />
+          <translations>
+            <translation lang="en_US">© Amz One MFG - 2025.</translation>
+          </translations>
         </property>
       </propertyGroup>
     </propertyGroup>
