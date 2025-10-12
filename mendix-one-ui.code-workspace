@@ -23,6 +23,9 @@
 		{
 			"name": "amz-top-tasks",
 			"path": "amz-top-tasks"
+		},
+		{
+			"path": "amz-chat-box"
 		}
 	],
 	"settings": {}

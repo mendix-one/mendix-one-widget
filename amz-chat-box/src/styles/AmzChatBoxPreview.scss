@@ -1,0 +1,29 @@
+@use './variables' as *;
+
+.amz-chat-box-preview {
+  width: 100%;
+  height: 100%;
+
+  .amz-web-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .amz-chat-box {
+    text-align: center;
+
+    .amz-chat-box-icon {
+      margin-bottom: 8px;
+    }
+
+    .amz-chat-box-text {
+      font-weight: 400;
+      font-size: '1.142857142857140rem';
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+  }
+}
