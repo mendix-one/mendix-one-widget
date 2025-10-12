@@ -5,6 +5,10 @@
 			"path": "amz-material-ui"
 		},
 		{
+			"name": "amz-login-page",
+			"path": "amz-login-page"
+		},
+		{
 			"name": "amz-web-app",
 			"path": "amz-web-app"
 		},
