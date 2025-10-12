@@ -16,6 +16,7 @@ export interface AmzChatBoxContainerProps {
     attKey?: ListAttributeValue<Big | string>;
     actReadNotify?: ListActionValue;
     actMarkAllAsRead?: ActionValue;
+    refWebAppLayout: DynamicValue<string>;
     optThemeTokens?: DynamicValue<string>;
     txtInputPlaceholder?: DynamicValue<string>;
 }
@@ -35,6 +36,7 @@ export interface AmzChatBoxPreviewProps {
     attKey: string;
     actReadNotify: {} | null;
     actMarkAllAsRead: {} | null;
+    refWebAppLayout: string;
     optThemeTokens: string;
     txtInputPlaceholder: string;
 }

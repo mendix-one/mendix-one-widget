@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode, useEffect, useState } from 'react'
+import { PropsWithChildren, ReactNode, useEffect, useState, useImperativeHandle, Ref, forwardRef } from 'react'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import Box from '@mui/material/Box'
@@ -17,8 +17,6 @@ import { blueGrey } from '@mui/material/colors'
 import MenuIcon from '@mui/icons-material/Menu'
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined'
 
-import AIChatBot from '../aibot/AIChatBot'
-
 const cfxSideBarLeftWidth = 220
 const cfxSideBarRightWidth = 320
 
@@ -31,7 +29,7 @@ export type AmzWebAppProps = {
   aiChatBox?: ReactNode | undefined
 }
 
-export default function AmzWebApp(props: PropsWithChildren<AmzWebAppProps>) {
+const AmzWebApp = forwardRef(function AmzWebApp(props: PropsWithChildren<AmzWebAppProps>, ref: Ref<any>) {
   const theme = useTheme()
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 
@@ -68,6 +66,10 @@ export default function AmzWebApp(props: PropsWithChildren<AmzWebAppProps>) {
     setIsShowingSidebarRight(false)
   }
 
+  useImperativeHandle(ref, () => ({
+    onCloseChatBox: onCloseChatBox,
+  }))
+
   return (
     <Box sx={{ width: '100%', height: '100%', minWidth: '', minHeight: '100%', maxWidth: '100%', maxHeight: 'auto' }}>
       <AppBar
@@ -85,9 +87,7 @@ export default function AmzWebApp(props: PropsWithChildren<AmzWebAppProps>) {
                 justifyContent: 'space-between',
               }}
             >
-              <Box sx={{ flexGrow: 1, maxHeight: '100%', pr: 4 }}>
-                {props.logo}
-              </Box>
+              <Box sx={{ flexGrow: 1, maxHeight: '100%', pr: 4 }}>{props.logo}</Box>
               <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
                 <Tooltip title="Navigation">
                   <IconButton
@@ -108,12 +108,8 @@ export default function AmzWebApp(props: PropsWithChildren<AmzWebAppProps>) {
           <Box sx={{ flexGrow: 1, maxHeight: '100%' }}></Box>
           <Box sx={{ flexGrow: 0, maxHeight: '100%' }}>
             <Stack direction="row" spacing={1}>
-              <Stack>
-                {props.tasks}
-              </Stack>
-              <Stack>
-                {props.notify}
-              </Stack>
+              <Stack>{props.tasks}</Stack>
+              <Stack>{props.notify}</Stack>
               <Stack>
                 <Box>
                   <Tooltip title="Assistant Bot">
@@ -132,9 +128,7 @@ export default function AmzWebApp(props: PropsWithChildren<AmzWebAppProps>) {
                   </Tooltip>
                 </Box>
               </Stack>
-              <Stack>
-                {props.userMenu}
-              </Stack>
+              <Stack>{props.userMenu}</Stack>
             </Stack>
           </Box>
         </Toolbar>
@@ -232,11 +226,11 @@ export default function AmzWebApp(props: PropsWithChildren<AmzWebAppProps>) {
           <Box>
             <Toolbar variant="dense" disableGutters={true} />
           </Box>
-          <Box sx={{ width: '100%', height: 'calc(100% - 48px)' }}>
-            <AIChatBot onClose={onCloseChatBox} />
-          </Box>
+          <Box sx={{ width: '100%', height: 'calc(100% - 48px)' }}>{props.aiChatBox}</Box>
         </Box>
       </Drawer>
     </Box>
   )
-}
+})
+
+export default AmzWebApp

@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
+import Global, { AmzEvent } from './global'
 import MyThem from './theme'
 import Utils from './utils'
 
@@ -16,7 +17,8 @@ export function AmzChatBox(props: AmzChatBoxContainerProps) {
   }, [props.optThemeTokens])
 
   const onClose = () => {
-
+    const channel = props.refWebAppLayout?.value || 'amzWebApp'
+    Global.publish(channel, { type: 'HIDE_CHAT_BOX' } as AmzEvent)
   }
 
   const txtInputPlaceholder = useMemo((): string => {

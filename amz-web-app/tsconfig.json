@@ -1,9 +1,11 @@
 {
   "extends": "@mendix/pluggable-widgets-tools/configs/tsconfig.base",
   "compilerOptions": {
-    "baseUrl": "./",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
-    "jsxFactory": ""
+    "jsxFactory": "",
+    "baseUrl": "./"
   },
   "include": ["./src", "./typings"]
 }

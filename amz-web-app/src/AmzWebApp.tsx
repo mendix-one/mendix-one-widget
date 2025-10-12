@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 
@@ -6,16 +6,26 @@ import { AmzWebAppContainerProps } from '../typings/AmzWebAppProps'
 
 import Utils from './utils'
 import MyThem from './theme'
+import MyGlobal, { AmzEvent } from './global'
 import AppContextProvider from './context/AppContextProvider'
 
 import AmzWebAppMain from './main/AmzWebAppMain'
 
 export function AmzWebApp(props: AmzWebAppContainerProps) {
+  const mainElRef = useRef<any>(null)
+
   const theme = useMemo((): Theme => {
     const options = Utils.parseJsonStringSlient(props.optThemeTokens?.value)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return createTheme({ ...MyThem.tokens, ...options } as any)
   }, [props.optThemeTokens])
+
+  const handleEvent = (event: AmzEvent) => {
+    console.info(event)
+    if (event.type === 'HIDE_CHAT_BOX') {
+      mainElRef.current?.onCloseChatBox()
+    }
+  }
 
   useEffect(() => {
     // On enter page
@@ -23,8 +33,12 @@ export function AmzWebApp(props: AmzWebAppContainerProps) {
       props.actEnterPage?.execute({ params: '{}' })
     }
 
+    const channel = props.name || 'amzWebApp'
+    const unbind = MyGlobal.subscribe(channel, handleEvent)
+
     // On exit page
     return () => {
+      unbind()
       if (props.actExitPage?.canExecute) {
         props.actExitPage?.execute({ params: '{}' })
       }
@@ -36,6 +50,7 @@ export function AmzWebApp(props: AmzWebAppContainerProps) {
       <CssBaseline />
       <AppContextProvider>
         <AmzWebAppMain
+          ref={mainElRef}
           logo={props.wdgBrandLogo}
           tasks={props.wdgTopTasks}
           notify={props.wdgTopNotify}

@@ -41,6 +41,13 @@
       </propertyGroup>
     </propertyGroup>
     <propertyGroup caption="Settings">
+      <propertyGroup caption="App Layout">
+        <property key="refWebAppLayout" type="expression" required="true" defaultValue="amzWebApp">
+          <caption>Web App ID</caption>
+          <description />
+          <returnType type="String" />
+        </property>
+      </propertyGroup>
       <propertyGroup caption="Custom Theme">
         <property key="optThemeTokens" type="expression" required="false" defaultValue="empty">
           <caption>Theme Tokens</caption>

@@ -5,6 +5,10 @@
 			"path": "amz-material-ui"
 		},
 		{
+			"name": "amz-events-bus",
+			"path": "amz-events-bus"
+		},
+		{
 			"name": "amz-web-app",
 			"path": "amz-web-app"
 		},
@@ -25,6 +29,7 @@
 			"path": "amz-top-tasks"
 		},
 		{
+			"name": "amz-chat-box",
 			"path": "amz-chat-box"
 		}
 	],
