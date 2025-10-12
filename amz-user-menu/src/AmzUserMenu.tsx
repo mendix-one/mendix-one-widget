@@ -1,11 +1,21 @@
 import { useMemo } from 'react'
 import { ValueStatus } from 'mendix'
+import CssBaseline from '@mui/material/CssBaseline'
+import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
+import MyThem from './theme'
+import Utils from './utils'
 
 import { AmzUserMenuContainerProps } from '../typings/AmzUserMenuProps'
 
 import AppUserMenu from './main/AppUserMenu'
 
 export function AmzUserMenu(props: AmzUserMenuContainerProps) {
+  const theme = useMemo((): Theme => {
+    const options = Utils.parseJsonStringSlient(props.optThemeTokens?.value)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return createTheme({ ...MyThem.tokens, ...options } as any)
+  }, [props.optThemeTokens])
+
   const avatar = useMemo(() => {
     if (props.pptAvatar?.status === ValueStatus.Available) {
       return props.pptAvatar?.value?.uri || undefined
@@ -69,20 +79,23 @@ export function AmzUserMenu(props: AmzUserMenuContainerProps) {
   }, [props.txtLogout])
 
   return (
-    <AppUserMenu
-      avatar={avatar}
-      username={username}
-      userRoles={userRoles}
-      onChangeLanuage={onChangeLanuage}
-      onShowProfile={onShowProfile}
-      onChangePassword={onChangePassword}
-      onCustomSettings={onCustomSettings}
-      onLogout={onLogout}
-      txtLanguage={txtLanguage}
-      txtAccountProfile={txtAccountProfile}
-      txtChangePassword={txtChangePassword}
-      txtCustomSettings={txtCustomSettings}
-      txtLogout={txtLogout}
-    />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppUserMenu
+        avatar={avatar}
+        username={username}
+        userRoles={userRoles}
+        onChangeLanuage={onChangeLanuage}
+        onShowProfile={onShowProfile}
+        onChangePassword={onChangePassword}
+        onCustomSettings={onCustomSettings}
+        onLogout={onLogout}
+        txtLanguage={txtLanguage}
+        txtAccountProfile={txtAccountProfile}
+        txtChangePassword={txtChangePassword}
+        txtCustomSettings={txtCustomSettings}
+        txtLogout={txtLogout}
+      />
+    </ThemeProvider>
   )
 }

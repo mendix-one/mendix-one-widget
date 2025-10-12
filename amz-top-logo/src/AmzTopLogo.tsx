@@ -1,9 +1,21 @@
 import { useMemo } from 'react'
 import { ValueStatus } from 'mendix'
-import AmzTopLogoMain from './main/AmzTopLogoMain'
+import CssBaseline from '@mui/material/CssBaseline'
+import { createTheme, ThemeProvider, type Theme } from '@mui/material/styles'
+import MyThem from './theme'
+import Utils from './utils'
+
 import { AmzTopLogoContainerProps } from '../typings/AmzTopLogoProps'
 
+import AmzTopLogoMain from './main/AmzTopLogoMain'
+
 export function AmzTopLogo(props: AmzTopLogoContainerProps) {
+  const theme = useMemo((): Theme => {
+    const options = Utils.parseJsonStringSlient(props.optThemeTokens?.value)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return createTheme({ ...MyThem.tokens, ...options } as any)
+  }, [props.optThemeTokens])
+
   const image = useMemo(() => {
     if (props.pptLogo?.status === ValueStatus.Available) {
       return props.pptLogo?.value?.uri || undefined
@@ -26,5 +38,10 @@ export function AmzTopLogo(props: AmzTopLogoContainerProps) {
     }
   }
 
-  return <AmzTopLogoMain image={image} text={text} title={title} onClick={onClick} />
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AmzTopLogoMain image={image} text={text} title={title} onClick={onClick} />
+    </ThemeProvider>
+  )
 }
