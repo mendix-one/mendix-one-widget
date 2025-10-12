@@ -5,10 +5,6 @@
 			"path": "amz-material-ui"
 		},
 		{
-			"name": "amz-events-bus",
-			"path": "amz-events-bus"
-		},
-		{
 			"name": "amz-web-app",
 			"path": "amz-web-app"
 		},
