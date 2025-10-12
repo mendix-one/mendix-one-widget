@@ -29,6 +29,7 @@ import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined'
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined'
 import ThumbDownOutlinedIcon from '@mui/icons-material/ThumbDownOutlined'
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined'
+import TextField from '@mui/material/TextField'
 
 export type AIChatBotProps = {
   onClose: () => void
@@ -247,8 +248,19 @@ export default function AIChatBot(props: AIChatBotProps) {
                   justifyContent: 'end',
                 }}
               >
-                <Box sx={{ py: 1, px: 3, borderRadius: 8, backgroundColor: blueGrey[50] }}>
-                  <Typography variant="inherit">{msg.text}</Typography>
+                <Box
+                  sx={{
+                    py: 1,
+                    px: 3,
+                    borderRadius: 4,
+                    backgroundColor: blueGrey[50],
+                    maxWidth: '100%',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <Typography variant="inherit" sx={{ wordBreak: 'break-all' }}>
+                    {msg.text}
+                  </Typography>
                 </Box>
               </Box>
             ) : (
@@ -345,15 +357,16 @@ export default function AIChatBot(props: AIChatBotProps) {
               )}
             </Stack>
             <Stack sx={{ flexGrow: 1 }}>
-              <TextareaAutosize
+              <TextField
+                multiline
+                size="small"
                 tabIndex={3000}
-                minRows={2}
+                minRows={1}
                 maxRows={10}
                 value={msg}
                 onChange={onChangeMsg}
                 onKeyDown={onKeyDownMsg}
                 placeholder="Input your message here"
-                style={{ resize: 'vertical' }}
               />
             </Stack>
             <Stack sx={{ flexGrow: 0 }}>
